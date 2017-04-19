@@ -19,9 +19,20 @@ namespace BlackJack
     /// </summary>
     public partial class AuthWindow : Window
     {
+        
+
+
         public AuthWindow()
         {
             InitializeComponent();
+            
+            
+            
+
         }
+
+
+        
     }
 }
+
