@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlackJack"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Name="MainWindowGrid" Margin="0,0,15,0" >
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="432,286,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-
-    </Grid>
+        Title="BlackJack" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <DockPanel HorizontalAlignment="Right" Height="78" VerticalAlignment="Top" Width="255" Margin="0,0,0,0">
+        <Button Name="LoginButton" Content="Авторизация" HorizontalAlignment="Left" Margin="20" Width="80" Height="30" Click="LoginButton_Click" Cursor="Hand"/>
+        <Button Name="RegisterButton" Content="Регистрация" HorizontalAlignment="Right" Margin="0,0,20,0" Width="80" Height="30" Click="RegisterButton_Click" Cursor="Hand"/>
+    </DockPanel>
 </Window>

@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Text.RegularExpressions;
+
 
 namespace BlackJack
 {
@@ -20,8 +10,6 @@ namespace BlackJack
     public partial class AuthWindow : Window
     {
         
-
-
         public AuthWindow()
         {
             InitializeComponent();
@@ -31,6 +19,33 @@ namespace BlackJack
 
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private static bool IsLoginAllowed(string text)
+        {
+            bool ValidLogin = false;
+            Regex regLogin = new Regex(@"^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9]{2,9}$");
+            if (text.Length > 0)
+            {
+                ValidLogin = regLogin.IsMatch(text);
+            }
+
+            return ValidLogin;
+        }
+
+
+        private void LoginTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (IsLoginAllowed(LoginTextBox.Text.Trim()) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoginTextBox.Focus();
+            }
+        }
 
         
     }
