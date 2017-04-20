@@ -58,13 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
     <Compile Include="RegisterForm.xaml.cs">
-      <DependentUpon>RegisterForm.xaml</DependentUpon>
-=======
+  <DependentUpon>RegisterForm.xaml</DependentUpon>
+</Compile>
     <Compile Include="RoomToFindPlayer.xaml.cs">
       <DependentUpon>RoomToFindPlayer.xaml</DependentUpon>
->>>>>>> develop
     </Compile>
     <Page Include="AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -85,15 +83,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Page Include="RegisterForm.xaml">
-=======
+      
+    </Page>
     <Page Include="MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomToFindPlayer.xaml">
->>>>>>> develop
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
