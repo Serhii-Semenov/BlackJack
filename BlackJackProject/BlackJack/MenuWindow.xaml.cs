@@ -32,6 +32,8 @@ namespace BlackJack
         private void btnGameRoom_Click(object sender, RoutedEventArgs e)
         {
             // TODO
+            var w = new RoomToFindPlayer();
+            w.ShowDialog();
         }
 
         private void btnGetCredit_Click(object sender, RoutedEventArgs e)
