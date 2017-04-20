@@ -12,13 +12,17 @@ namespace BlackJack
             InitializeComponent();
         }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+<<<<<<< HEAD
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             RegisterForm regForm = new RegisterForm();
@@ -30,6 +34,12 @@ namespace BlackJack
         {
             AuthWindow authWindow = new AuthWindow();
             authWindow.Show();
+=======
+        private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new MenuWindow();
+            w.ShowDialog();
+>>>>>>> develop
         }
     }
 }
