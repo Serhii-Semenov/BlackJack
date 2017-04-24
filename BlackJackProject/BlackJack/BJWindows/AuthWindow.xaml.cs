@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 
-namespace BlackJack
+namespace BlackJack.BJWindows
 {
     /// <summary>
     /// Логика взаимодействия для AuthWindow.xaml
@@ -13,15 +13,12 @@ namespace BlackJack
         public AuthWindow()
         {
             InitializeComponent();
-            
-            
-            
 
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DialogResult = false;
         }
 
         private static bool IsLoginAllowed(string text)
@@ -45,6 +42,12 @@ namespace BlackJack
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 LoginTextBox.Focus();
             }
+        }
+
+        private void btnRegestration_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterForm rf = new RegisterForm();
+            rf.ShowDialog();
         }
 
         

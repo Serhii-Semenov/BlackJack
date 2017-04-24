@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BlackJack
+namespace BlackJack.BJWindows
 {
     /// <summary>
     /// Логика взаимодействия для RoomToFindPlayer.xaml
@@ -28,8 +28,8 @@ namespace BlackJack
 
         private void addVizualRandomPlayers()
         {
-            int p = new Random().Next(1, 9);
-            //int p = 9;
+            const int maxPlayers = 5;
+            int p = new Random().Next(1, maxPlayers);
             Label[] labels = new Label[p];
             for (int i = 0; i < p; i++)
             {

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace BlackJack
+namespace BlackJack.BJWindows
 {
     /// <summary>
     /// Логика взаимодействия для RegisterForm.xaml

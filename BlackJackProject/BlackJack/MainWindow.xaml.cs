@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using BlackJack.BJWindows;
 
 namespace BlackJack
 {
@@ -9,39 +10,28 @@ namespace BlackJack
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterForm regForm = new RegisterForm();
-            regForm.Show();
-        }
-
         
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            AuthWindow authWindow = new AuthWindow();
-            authWindow.Show();
-        }
         private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
         {
-            var w = new MenuWindow();
+            var w = new AuthWindow();
             w.ShowDialog();
+            if (w.DialogResult == false) this.Close();
+            else this.Visibility = Visibility.Visible;
         }
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Visibility = Visibility.Hidden;
             btnMenuWindow_Click(null, null);
+            
         }
     }
 }
-
-
-
-//ButtonsStackPanel.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));

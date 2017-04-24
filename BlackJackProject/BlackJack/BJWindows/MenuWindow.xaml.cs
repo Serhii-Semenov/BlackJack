@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BlackJack
+namespace BlackJack.BJWindows
 {
     /// <summary>
     /// Логика взаимодействия для MenuWindow.xaml
