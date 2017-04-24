@@ -35,6 +35,11 @@ namespace BlackJack
             var w = new MenuWindow();
             w.ShowDialog();
         }
+
+        private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnMenuWindow_Click(null, null);
+        }
     }
 }
 
