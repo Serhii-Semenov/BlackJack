@@ -1,0 +1,19 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BlackJack.BJWindows.MenuWindow"
+        Title="Menu" Height="300" Width="300" MinHeight="300" MinWidth="250" MaxHeight="310" MaxWidth="350">
+    <StackPanel>
+        <DockPanel>
+            <Label DockPanel.Dock="Left" Content="Меню" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            <Label x:Name="lblPlayerName" DockPanel.Dock="Right" Content="Имя игрока" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            <Line></Line>
+        </DockPanel>
+        <Button x:Name="btnGameSolo" Content="Игра с компьютером" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnGameSolo_Click"/>
+        <Button x:Name="btnGameRoom" Content="Игра с соперниками" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnGameRoom_Click"/>
+        <Button x:Name="btnGetCredit" Content="Взять кредит 1000" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnGetCredit_Click"/>
+        <Button x:Name="btnRule" Content="Правила" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnRule_Click"/>
+        <Button x:Name="btnStatistic" Content="Статистика" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnStatistic_Click"/>
+        <Button x:Name="btnLogout" Content="Логаут" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnLogout_Click"/>
+    </StackPanel>
+</Window>
