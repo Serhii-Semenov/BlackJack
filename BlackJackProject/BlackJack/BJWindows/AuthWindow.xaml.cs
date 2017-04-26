@@ -50,7 +50,10 @@ namespace BlackJack.BJWindows
             rf.ShowDialog();
         }
 
-        
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }
 

@@ -1,0 +1,25 @@
+﻿using BlackJackWcfService.Model;
+using BlackJackWcfService.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+
+namespace BlackJackWcfService
+{
+    [ServiceContract(CallbackContract = typeof(IClientCallback), SessionMode = SessionMode.Required)]
+    public interface IGameService
+    {
+        [OperationContract]
+        int Login(string nickname);
+
+        [OperationContract]
+        void Logout(int id);
+
+        [OperationContract]
+        PlayerList GetPlayers();
+
+    }
+}

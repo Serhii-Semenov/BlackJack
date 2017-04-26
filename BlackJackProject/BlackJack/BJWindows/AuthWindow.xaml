@@ -10,9 +10,9 @@
             <Label Content="Пароль" Canvas.Left="27" Canvas.Top="53"/>
             <TextBox Name="LoginTextBox" Height="23" TextWrapping="Wrap" Canvas.Left="104" Canvas.Top="12" Width="123" PreviewLostKeyboardFocus="LoginTextBox_LostFocus"/>
             <PasswordBox Name="PasswTextBox" Height="23" PasswordChar="*" Canvas.Left="104" Canvas.Top="53" Width="123"/>
-            <Button Name="LoginButton" Content="Войти" Margin="0" Width="59" Canvas.Left="49" Canvas.Top="97" Cursor="Hand"/>
-            <Button Name="btnRegestration" Content="Регистрация" Margin="0" Width="69" Canvas.Left="126" Canvas.Top="97" Click="btnRegestration_Click" Cursor="Hand"/>
-            <Button Name="BackButton" Content="Отмена" Margin="0" Width="59" Canvas.Left="206" Canvas.Top="97" Click="BackButton_Click" Cursor="Hand"/>
+            <Button Name="LoginButton" Content="Войти" Margin="0" Width="88" Canvas.Left="10" Canvas.Top="98" Cursor="Hand" Click="LoginButton_Click"/>
+            <Button Name="btnRegestration" Content="Регистрация" Margin="0" Width="88" Canvas.Left="104" Canvas.Top="98" Click="btnRegestration_Click" Cursor="Hand"/>
+            <Button Name="BackButton" Content="Отмена" Margin="0" Width="78" Canvas.Left="197" Canvas.Top="98" Click="BackButton_Click" Cursor="Hand"/>
         </Canvas>
     </StackPanel>
 </Window>
