@@ -143,11 +143,11 @@
   </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
-      <soap12:address location="net.tcp://localhost:2017/BlackJackWcfService/Service1/" />
+      <soap12:address location="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:2017/BlackJackWcfService/Service1/</wsa10:Address>
+        <wsa10:Address>net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Xeon\Base</Upn>
+          <Upn>xvII@step.edu</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

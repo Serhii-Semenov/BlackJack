@@ -24,8 +24,17 @@ namespace BlackJack
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            service.Logout(ClientGameCore.Player.Id);
-            base.OnClosing(e);
+            try
+            {
+                service.Logout(ClientGameCore.Player.Id);
+                base.OnClosing(e);
+            }
+            catch (Exception)
+            {
+                // TODO                
+                // throw;
+            }
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
