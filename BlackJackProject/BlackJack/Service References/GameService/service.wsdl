@@ -47,6 +47,12 @@
   <wsdl:message name="IGameService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameService_Registration_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registration" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_Registration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationResponse" />
+  </wsdl:message>
   <wsdl:message name="IGameService_Logout_InputMessage">
     <wsdl:part name="parameters" element="tns:Logout" />
   </wsdl:message>
@@ -73,6 +79,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/Login" message="tns:IGameService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LoginResponse" message="tns:IGameService_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Registration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/Registration" message="tns:IGameService_Registration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/RegistrationResponse" message="tns:IGameService_Registration_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Logout">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/Logout" message="tns:IGameService_Logout_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LogoutResponse" message="tns:IGameService_Logout_OutputMessage" />
@@ -97,6 +107,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/IGameService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registration">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/Registration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -143,11 +162,11 @@
   </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
-      <soap12:address location="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/" />
+      <soap12:address location="net.tcp://localhost:2017/BlackJackWcfService/Service1/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:2017/BlackJackWcfService/Service1/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>xvII@step.edu</Upn>
+          <Upn>SILVERPC\HpSilver</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

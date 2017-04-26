@@ -152,10 +152,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GameService\" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <WCFMetadataStorage Include="Service References\GameService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\GameService\configuration91.svcinfo" />

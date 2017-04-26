@@ -7,45 +7,39 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using BlackJackWcfService.Model;
+using BJDataLevel.Providers;
+using BJDataLevel.Providers.LocalDBProvider;
 
 namespace BlackJackWcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    [ServiceBehavior(IncludeExceptionDetailInFaults =true)]
     public class GameService : IGameService
     {
         private static List<IClientCallback> callbackList = new List<IClientCallback>();
 
-        public int Login(string nickname)
+        public int Login(string login, string pasword)
         {
-            if (GameCore.Players.Players.Values.Any(p => p.Nickname == nickname))
-            {
-                throw new Exception("Nickname already used!");
-            }
-
-
-
-            var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
-
-            if (!callbackList.Contains(callback))
-            {
-                var id = GameCore.NextPlayerId;
-                var player = new Player() { Id = id, Nickname = nickname };
-                GameCore.AddPlayer(player, callback);
-                callbackList.Add(callback);
-                SendPlayers(callback);
-
-                return id;
-            }
-            return -1;
+            IProvider provider = new ProviderLocalDB();
+            return provider.LoginUser(login, pasword);
         }
 
-        public int Login(string nickname, string password)
+        public int Registration(string login, string pasword)
         {
-            // TODO A
-            return -1;
+            IProvider provider = new ProviderLocalDB();
+            return provider.RegistationUser(login, pasword);
         }
+
+
+
+
+
+
+
+
+
+
+
 
         private void SendPlayers(IClientCallback current)
         {

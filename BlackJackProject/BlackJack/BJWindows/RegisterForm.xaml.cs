@@ -78,5 +78,11 @@ namespace BlackJack.BJWindows
         {
             this.Close();
         }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+        
+
+        }
     }
 }
