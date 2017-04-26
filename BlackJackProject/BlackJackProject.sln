@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJackWcfService", "BlackJackWcfService\BlackJackWcfService.csproj", "{D38D6C85-2341-428D-896E-357B967A86BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJack", "BlackJack\BlackJack.csproj", "{36E0B620-4798-47F8-AD95-7476DD422904}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D38D6C85-2341-428D-896E-357B967A86BF} = {D38D6C85-2341-428D-896E-357B967A86BF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJLogicLevel", "BJLogicLevel\BJLogicLevel.csproj", "{2D73A7F6-4112-48BF-A301-EBB50255B65B}"
 EndProject

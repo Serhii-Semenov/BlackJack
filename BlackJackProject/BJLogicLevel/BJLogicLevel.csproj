@@ -39,8 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BJDataLevel\BJDataLevel.csproj">
+      <Project>{05cadc62-ed0c-4366-b07b-7849db474e0d}</Project>
+      <Name>BJDataLevel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlackJack\BlackJack.csproj">
+      <Project>{36e0b620-4798-47f8-ad95-7476dd422904}</Project>
+      <Name>BlackJack</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

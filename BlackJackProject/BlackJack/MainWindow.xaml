@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlackJack"
         mc:Ignorable="d"
-
         Title="MainWindow" Height="350" Width="525">
     <Grid Name="MainWindowGrid" Margin="0,0,15,0" Loaded="MainWindowGrid_Loaded" >
+        <StackPanel>
+            <WrapPanel>
+                <TextBox Name="txtNickname" Text="Hitman" Width="100"/>
+                <Button Content="Connect" Name="btnConnect" Click="btnConnect_Click" />
+                <Label Name="lblStatus" />
+            </WrapPanel>
+            <WrapPanel>
+                <ListBox Name="lbxPlayers" MinWidth="180" />
+            </WrapPanel>
+        </StackPanel>
         <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="345,288,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
         <Button x:Name="btnMenuWindow" Content="menuWindow" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75" Click="btnMenuWindow_Click"/>
 
