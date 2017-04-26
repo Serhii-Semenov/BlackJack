@@ -11,6 +11,8 @@ using BlackJackWcfService.Model;
 namespace BlackJackWcfService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class GameService : IGameService
     {
         private static List<IClientCallback> callbackList = new List<IClientCallback>();
@@ -21,6 +23,8 @@ namespace BlackJackWcfService
             {
                 throw new Exception("Nickname already used!");
             }
+
+
 
             var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
 
@@ -34,6 +38,12 @@ namespace BlackJackWcfService
 
                 return id;
             }
+            return -1;
+        }
+
+        public int Login(string nickname, string password)
+        {
+            // TODO A
             return -1;
         }
 
