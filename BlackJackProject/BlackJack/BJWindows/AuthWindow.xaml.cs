@@ -52,6 +52,8 @@ namespace BlackJack.BJWindows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+
+
             DialogResult = true;
         }
     }
