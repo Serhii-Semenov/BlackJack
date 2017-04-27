@@ -23,9 +23,7 @@ namespace BlackJack
             try
             {
                 service = new GameServiceClient(new InstanceContext(new ClientCallback()));
-                MessageBox.Show("123");
                 int t = service.Registration("gsf", "sdfsdf");
-                MessageBox.Show("123");
                 MessageBox.Show(t.ToString());
             }
             catch (Exception ex)
