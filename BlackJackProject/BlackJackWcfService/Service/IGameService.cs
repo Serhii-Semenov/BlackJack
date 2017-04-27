@@ -13,8 +13,11 @@ namespace BlackJackWcfService
     public interface IGameService
     {
         [OperationContract]
-        int Login(string nickname);
+        int Login(string login, string pasword);
 
+        [OperationContract]
+        int Registration(string login, string pasword);
+       
         [OperationContract]
         void Logout(int id);
 

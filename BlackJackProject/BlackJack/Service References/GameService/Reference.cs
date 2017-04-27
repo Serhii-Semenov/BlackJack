@@ -201,10 +201,16 @@ namespace BlackJack.GameService {
     public interface IGameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Login", ReplyAction="http://tempuri.org/IGameService/LoginResponse")]
-        int Login(string nickname);
+        int Login([System.ServiceModel.MessageParameterAttribute(Name="login")] string login1, string pasword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Login", ReplyAction="http://tempuri.org/IGameService/LoginResponse")]
-        System.Threading.Tasks.Task<int> LoginAsync(string nickname);
+        System.Threading.Tasks.Task<int> LoginAsync(string login, string pasword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Registration", ReplyAction="http://tempuri.org/IGameService/RegistrationResponse")]
+        int Registration(string login, string pasword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Registration", ReplyAction="http://tempuri.org/IGameService/RegistrationResponse")]
+        System.Threading.Tasks.Task<int> RegistrationAsync(string login, string pasword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Logout", ReplyAction="http://tempuri.org/IGameService/LogoutResponse")]
         void Logout(int id);
@@ -260,12 +266,20 @@ namespace BlackJack.GameService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public int Login(string nickname) {
-            return base.Channel.Login(nickname);
+        public int Login(string login1, string pasword) {
+            return base.Channel.Login(login1, pasword);
         }
         
-        public System.Threading.Tasks.Task<int> LoginAsync(string nickname) {
-            return base.Channel.LoginAsync(nickname);
+        public System.Threading.Tasks.Task<int> LoginAsync(string login, string pasword) {
+            return base.Channel.LoginAsync(login, pasword);
+        }
+        
+        public int Registration(string login, string pasword) {
+            return base.Channel.Registration(login, pasword);
+        }
+        
+        public System.Threading.Tasks.Task<int> RegistrationAsync(string login, string pasword) {
+            return base.Channel.RegistrationAsync(login, pasword);
         }
         
         public void Logout(int id) {

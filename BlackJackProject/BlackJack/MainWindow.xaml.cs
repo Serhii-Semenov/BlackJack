@@ -14,12 +14,25 @@ namespace BlackJack
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameServiceClient service;
+        private ServiceProxy.ServiceProxy service;
         private List<PlayerView> players = new List<PlayerView>();
 
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                //service = ServiceProxy.ServiceProxy.Instance;
+                MessageBox.Show("123");
+                int t = service.Registration("gsf", "sdfsdf");
+                MessageBox.Show("123");
+                MessageBox.Show(t.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -52,7 +65,7 @@ namespace BlackJack
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            return;
+            //return;
 
             this.Visibility = Visibility.Hidden;
             btnMenuWindow_Click(null, null);
@@ -86,8 +99,9 @@ namespace BlackJack
                 callback.GameStarted += callback_GameStarted;
                 callback.GamePlayerMoved += callback_GamePlayerMoved;
 
-                service = new GameServiceClient(new InstanceContext(callback));
-                var id = service.Login(nickname);
+                service = ServiceProxy.ServiceProxy.Instance;
+                //service = new GameServiceClient(new InstanceContext(callback));
+                var id = service.Login(nickname, null);
                 ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
                 ClientGameCore.Status = ClientStatus.Online;
                 btnConnect.Content = "Disconnect";
@@ -117,7 +131,7 @@ namespace BlackJack
         {
             try
             {
-                ClientGameCore.Players = service.GetPlayers();
+                //ClientGameCore.Players = service.GetPlayers();
                 UpdatePlayerList();
             }
             catch (Exception err)

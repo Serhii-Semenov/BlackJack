@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="867a07bf-671c-493b-bac4-60c120fab64d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="535bfcd0-7b19-4c5f-8701-7b12cb387c08" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="75bd1fa9-16e8-443f-88bf-633a7f1e92d7" SourceId="1" SourceUrl="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c523155f-f779-4807-a4e9-e0fced1b6c3d" SourceId="1" SourceUrl="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="60a89af4-9246-4651-871d-13f694d9c3a6" SourceId="1" SourceUrl="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" />
-    <MetadataFile FileName="BlackJackWcfService.Model.xsd" MetadataType="Schema" ID="e8fb6c86-c907-4cef-aa5a-fc4cb030f88c" SourceId="1" SourceUrl="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="7ba6a151-c591-48f1-962c-76a822d1d614" SourceId="1" SourceUrl="net.tcp://10.6.6.104:4042/BlackJackWcfService/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b8b5ecc8-a826-4649-b70a-60d8cc3e33ab" SourceId="1" SourceUrl="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4f4905b0-fc7c-4ea2-89bc-3526e508804e" SourceId="1" SourceUrl="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1d47f17c-0557-431f-ad00-7db3e33923d2" SourceId="1" SourceUrl="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" />
+    <MetadataFile FileName="BlackJackWcfService.Model.xsd" MetadataType="Schema" ID="a59feae6-737c-43c5-ad57-92b176b41584" SourceId="1" SourceUrl="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="c8c403d0-9dd2-443a-a429-6b7ac6103e35" SourceId="1" SourceUrl="net.tcp://localhost:2017/BlackJackWcfService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
