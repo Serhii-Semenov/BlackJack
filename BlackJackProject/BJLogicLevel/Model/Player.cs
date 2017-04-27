@@ -15,5 +15,19 @@ namespace BlackJackWcfService.Model
 
         [DataMember]
         public string Nickname { get; set; }
+
+        [DataMember]
+        public int Money { get; set; }
+
+        [DataMember]
+        public int Rate { get; set; }
+        
+        [DataMember]
+        public List<Ccard> CardList;
+
+        public Player()
+        {
+            List<Ccard> CardList = new List<Ccard>();
+        }
     }
 }

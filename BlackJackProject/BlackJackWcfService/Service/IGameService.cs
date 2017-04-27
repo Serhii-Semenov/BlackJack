@@ -1,11 +1,6 @@
-﻿using BlackJackWcfService.Model;
-using BlackJackWcfService.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using BlackJackWcfService.Service;
 using System.ServiceModel;
-using System.Text;
+
 
 namespace BlackJackWcfService
 {
@@ -18,11 +13,11 @@ namespace BlackJackWcfService
         [OperationContract]
         int Registration(string login, string pasword);
        
-        [OperationContract]
-        void Logout(int id);
+        //[OperationContract]
+        //void Logout(int id);
 
-        [OperationContract]
-        PlayerList GetPlayers();
+        //[OperationContract]
+        //PlayerList GetPlayers();
 
     }
 }

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="PlayerList">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Players" nillable="true" type="q1:ArrayOfKeyValueOfintPlayerRNgtC3l0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlayerList" nillable="true" type="tns:PlayerList" />
+  <xs:complexType name="Player">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Money" type="xs:int" />
+      <xs:element minOccurs="0" name="Nickname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Player" nillable="true" type="tns:Player" />
+  <xs:complexType name="ArrayOfGamePlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGamePlayer" nillable="true" type="tns:ArrayOfGamePlayer" />
+  <xs:complexType name="GamePlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="SomeArtibute1" type="xs:int" />
+      <xs:element minOccurs="0" name="SomeAtribute2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+</xs:schema>
