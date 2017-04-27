@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,6 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameLogic\GameCore.cs" />
+    <Compile Include="GameLogic\Room.cs" />
+    <Compile Include="Model\Ccard.cs" />
+    <Compile Include="Model\CDeck.cs" />
+    <Compile Include="Model\enums.cs" />
+    <Compile Include="Model\GamePlayer.cs" />
+    <Compile Include="Model\GamesRoom.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

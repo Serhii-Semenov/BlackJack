@@ -55,14 +55,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameLogic\GameCore.cs" />
-    <Compile Include="GameLogic\Room.cs" />
-    <Compile Include="Model\Ccard.cs" />
-    <Compile Include="Model\CDeck.cs" />
-    <Compile Include="Model\enums.cs" />
-    <Compile Include="Model\GamePlayer.cs" />
-    <Compile Include="Model\Player.cs" />
-    <Compile Include="Model\PlayerList.cs" />
     <Compile Include="Service\IClientCallback.cs" />
     <Compile Include="Service\IGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

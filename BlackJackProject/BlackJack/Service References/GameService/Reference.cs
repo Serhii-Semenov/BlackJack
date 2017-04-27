@@ -71,6 +71,9 @@ namespace BlackJack.GameService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MoneyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NicknameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -92,6 +95,19 @@ namespace BlackJack.GameService {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Money {
+            get {
+                return this.MoneyField;
+            }
+            set {
+                if ((this.MoneyField.Equals(value) != true)) {
+                    this.MoneyField = value;
+                    this.RaisePropertyChanged("Money");
                 }
             }
         }

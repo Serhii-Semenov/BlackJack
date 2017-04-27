@@ -22,7 +22,7 @@ namespace BlackJack
             InitializeComponent();
             try
             {
-                //service = ServiceProxy.ServiceProxy.Instance;
+                service = ServiceProxy.ServiceProxy.Instance;
                 MessageBox.Show("123");
                 int t = service.Registration("gsf", "sdfsdf");
                 MessageBox.Show("123");
