@@ -14,7 +14,7 @@ namespace BlackJack
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameServiceClient service;
+        private ServiceProxy.ServiceProxy service;
         private List<PlayerView> players = new List<PlayerView>();
 
         public MainWindow()
@@ -22,7 +22,7 @@ namespace BlackJack
             InitializeComponent();
             try
             {
-                service = new GameServiceClient(new InstanceContext(new ClientCallback()));
+                //service = ServiceProxy.ServiceProxy.Instance;
                 MessageBox.Show("123");
                 int t = service.Registration("gsf", "sdfsdf");
                 MessageBox.Show("123");
@@ -99,7 +99,8 @@ namespace BlackJack
                 callback.GameStarted += callback_GameStarted;
                 callback.GamePlayerMoved += callback_GamePlayerMoved;
 
-                service = new GameServiceClient(new InstanceContext(callback));
+                service = ServiceProxy.ServiceProxy.Instance;
+                //service = new GameServiceClient(new InstanceContext(callback));
                 var id = service.Login(nickname, null);
                 ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
                 ClientGameCore.Status = ClientStatus.Online;
@@ -130,7 +131,7 @@ namespace BlackJack
         {
             try
             {
-                ClientGameCore.Players = service.GetPlayers();
+                //ClientGameCore.Players = service.GetPlayers();
                 UpdatePlayerList();
             }
             catch (Exception err)
