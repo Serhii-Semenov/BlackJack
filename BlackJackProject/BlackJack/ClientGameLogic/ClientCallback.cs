@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack.ClientGameLogic
 {
-    class ClientCallback : IGameServiceCallback
+    public class ClientCallback : IGameServiceCallback
     {
         public event Action<PlayerList> PlayersUpdated;
         public event Action<List<GamePlayer>> GameStarted;

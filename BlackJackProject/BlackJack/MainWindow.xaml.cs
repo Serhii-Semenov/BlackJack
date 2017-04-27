@@ -14,32 +14,18 @@ namespace BlackJack
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ServiceProxy.ServiceProxy service;
         private List<PlayerView> players = new List<PlayerView>();
 
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                //service = ServiceProxy.ServiceProxy.Instance;
-                MessageBox.Show("123");
-                int t = service.Registration("gsf", "sdfsdf");
-                MessageBox.Show("123");
-                MessageBox.Show(t.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             try
             {
-                service.Logout(ClientGameCore.Player.Id);
+                BJService.ServiceProxy.Instance.service.Logout(ClientGameCore.Player.Id);
                 base.OnClosing(e);
             }
             catch (Exception)
@@ -47,14 +33,14 @@ namespace BlackJack
                 // TODO                
                 // throw;
             }
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
+
         private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
         {
             var w = new AuthWindow();
@@ -65,11 +51,8 @@ namespace BlackJack
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            //return;
-
             this.Visibility = Visibility.Hidden;
             btnMenuWindow_Click(null, null);
-            
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -88,43 +71,37 @@ namespace BlackJack
         {
             try
             {
-                var callback = new ClientCallback();
+                BJService.ServiceProxy.Instance.Callback.PlayersUpdated += pl =>
+                            {
+                                ClientGameCore.Players = pl;
+                                UpdatePlayerList();
+                            };
+                BJService.ServiceProxy.Instance.Callback.GameStarted += callback_GameStarted;
+                BJService.ServiceProxy.Instance.Callback.GamePlayerMoved += callback_GamePlayerMoved;
+                BJService.ServiceProxy.Instance.Connect(nickname);
 
-                callback.PlayersUpdated += pl =>
-                    {
-                        ClientGameCore.Players = pl;
-                        UpdatePlayerList();
-                    };
-
-                callback.GameStarted += callback_GameStarted;
-                callback.GamePlayerMoved += callback_GamePlayerMoved;
-
-                service = ServiceProxy.ServiceProxy.Instance;
-                //service = new GameServiceClient(new InstanceContext(callback));
-                var id = service.Login(nickname, null);
-                ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
-                ClientGameCore.Status = ClientStatus.Online;
                 btnConnect.Content = "Disconnect";
                 GetPlayers();
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                MessageBox.Show(err.Message);
-            }           
+                throw;
+            }
+
         }
 
         private void callback_GamePlayerMoved(GamePlayer player)
         {
-           
+
         }
 
         private void callback_GameStarted(List<GamePlayer> players)
         {
             players.Clear();
             foreach (var p in players)
-	        {
-		         //players.Add()
-	        }            
+            {
+                //players.Add()
+            }
         }
 
         private void GetPlayers()
@@ -153,14 +130,14 @@ namespace BlackJack
         {
             try
             {
-                service.Logout(ClientGameCore.Player.Id);
+                BJService.ServiceProxy.Instance.service.Logout(ClientGameCore.Player.Id);
                 ClientGameCore.Status = ClientStatus.Offline;
-                service.Close();
+                BJService.ServiceProxy.Instance.service.Close();
                 btnConnect.Content = "Connect";
             }
             catch (Exception err)
             {
-                 MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message);
             }
         }
     }
