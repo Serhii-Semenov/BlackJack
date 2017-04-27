@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlackJack.BJService
 {
-    class ServiceProvider
+     class ServiceProvider
     {
+
     }
 }

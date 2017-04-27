@@ -7,12 +7,26 @@ using System.Threading.Tasks;
 
 namespace BlackJack.ClientGameLogic
 {
-    static class ClientGameCore
+    class ClientCallback : IGameServiceCallback
     {
-        public static ClientStatus Status { get; set; }
+        public event Action<PlayerList> PlayersUpdated;
+        public event Action<List<GamePlayer>> GameStarted;
+        public event Action<GamePlayer> GamePlayerMoved;
 
-        public static Player Player { get; set; }
+        public void UpdatePlayerList(PlayerList players)
+        {
+            if (PlayersUpdated != null) PlayersUpdated(players);
+        }
 
-        public static PlayerList Players { get; set; }
+
+        public void BattleStarted(GamePlayer[] players)
+        {
+            if (GameStarted != null) GameStarted(new List<GamePlayer>(players));
+        }
+
+        public void PlayerMoved(GamePlayer player)
+        {
+            if (GamePlayerMoved != null) GamePlayerMoved(player);
+        }
     }
 }
