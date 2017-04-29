@@ -1,8 +1,11 @@
-﻿namespace BJLogicLevel.GameLogic
+﻿using System.Collections.Generic;
+using BlackJackWcfService.Model;
+
+namespace BJLogicLevel.GameLogic
 {
     class Room
     {
-        //public Dictionary<IClientCallback, GamePlayer> Players { get; set; }
+        //public Dictionary<ClientCallback, GamePlayer> Players { get; set; }
 
         //public Room()
         //{
@@ -13,7 +16,7 @@
 
         //public void AddPlayer(IClientCallback callback, Player player)
         //{
-        //    Players.Add(callback, new GamePlayer { Id = player.Id});
+        //    Players.Add(callback, new GamePlayer { Id = player.Id });
         //}
     }
 }

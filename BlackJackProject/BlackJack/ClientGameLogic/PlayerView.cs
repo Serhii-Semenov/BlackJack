@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using BlackJack.GameService;
+using System.Windows.Controls;
 
 namespace BlackJack.ClientGameLogic
 {

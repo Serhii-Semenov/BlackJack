@@ -6,6 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJack.GameService;
 
 namespace BlackJack.BJService
 {
@@ -45,7 +46,7 @@ namespace BlackJack.BJService
 
         internal void Logout(int id)
         {
-            service.Logout(id);
+            //service.Logout(id);
         }
 
         internal void Close()

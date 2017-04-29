@@ -4,17 +4,16 @@ using BlackJack.ClientGameLogic;
 using BlackJack.GameService;
 using System.Collections.Generic;
 using System;
-using System.ServiceModel;
+using BlackJack.BJService;
 
 namespace BlackJack
 {
-
     /// <summary>
     /// 
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ServiceProxy.ServiceProxy service;
+        private ServiceProxy service;
         private List<PlayerView> players = new List<PlayerView>();
 
         public MainWindow()
@@ -22,11 +21,11 @@ namespace BlackJack
             InitializeComponent();
             try
             {
-                service = ServiceProxy.ServiceProxy.Instance;
-                MessageBox.Show("123");
-                int t = service.Registration("gsf", "sdfsdf");
-                MessageBox.Show("123");
-                MessageBox.Show(t.ToString());
+                //service = ServiceProxy.Instance;
+                //MessageBox.Show("123");
+                //int t = service.Registration("gsf", "sdfsdf");
+                //MessageBox.Show("123");
+                //MessageBox.Show(t.ToString());
             }
             catch (Exception ex)
             {
@@ -99,7 +98,7 @@ namespace BlackJack
                 callback.GameStarted += callback_GameStarted;
                 callback.GamePlayerMoved += callback_GamePlayerMoved;
 
-                service = ServiceProxy.ServiceProxy.Instance;
+                service = ServiceProxy.Instance;
                 //service = new GameServiceClient(new InstanceContext(callback));
                 var id = service.Login(nickname, null);
                 ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };

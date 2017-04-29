@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using BJDataLevel.Providers;
 using BJDataLevel.Providers.LocalDBProvider;
+using BlackJackWcfService.GameLogic;
 
 namespace BlackJackWcfService
 {
@@ -24,37 +25,27 @@ namespace BlackJackWcfService
         }
 
 
+        private void SendPlayers(IClientCallback current)
+        {
+            foreach (var callback in callbackList)
+            {
+                if (callback != current) callback.UpdatePlayerList(GameCore.Players);
+            }
+        }
 
+        public void Logout(int id)
+        {
+            if (!GameCore.Players.Players.ContainsKey(id)) throw new System.Exception("User with id " + id + " not founded!");
+            GameCore.Players.Players.Remove(id);
 
+            var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
+            if (callbackList.Contains(callback))
+            {
+                callbackList.Remove(callback);
+            }
 
-
-
-
-
-
-
-
-        //private void SendPlayers(IClientCallback current)
-        //{
-        //    foreach (var callback in callbackList)
-        //    {
-        //        if (callback != current) callback.UpdatePlayerList(GameCore.Players);
-        //    }
-        //}
-
-        //public void Logout(int id)
-        //{
-        //    if (!GameCore.Players.Players.ContainsKey(id)) throw new Exception("User with id " + id + " not founded!");
-        //    GameCore.Players.Players.Remove(id);
-
-        //    var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
-        //    if (callbackList.Contains(callback))
-        //    {
-        //        callbackList.Remove(callback);
-        //    }
-
-        //    SendPlayers(callback);
-        //}
+            SendPlayers(callback);
+        }
 
 
         //public void PlayerMove(int id, int x, int y)
