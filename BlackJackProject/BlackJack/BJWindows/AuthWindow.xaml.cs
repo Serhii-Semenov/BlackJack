@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Text.RegularExpressions;
 using BlackJack.BJService;
+using BlackJack.GameService;
 
 namespace BlackJack.BJWindows
 {
@@ -57,6 +58,7 @@ namespace BlackJack.BJWindows
             {
                 // temp message
                 MessageBox.Show("True " + tbLogin.Text, x.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                
 
                 DialogResult = true;
                 // Connect

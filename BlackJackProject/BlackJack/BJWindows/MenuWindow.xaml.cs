@@ -22,6 +22,25 @@ namespace BlackJack.BJWindows
         public MenuWindow()
         {
             InitializeComponent();
+
+            InitLogin();
+            
+        }
+
+        private void InitLogin()
+        {
+            while (true)
+            {
+                var w = new AuthWindow();
+                w.ShowDialog();
+                if (w.DialogResult == false) this.Close();
+                else
+                {
+                    this.Visibility = Visibility.Visible;
+                    //lblPlayerName = 
+                    return;
+                }
+            }
         }
 
         private void btnGameSolo_Click(object sender, RoutedEventArgs e)

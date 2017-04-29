@@ -14,6 +14,7 @@ namespace BlackJack
     public partial class MainWindow : Window
     {
         private ServiceProxy service;
+        public Player CurentPlayer { get; set; }
         
 
         public MainWindow()
@@ -56,7 +57,7 @@ namespace BlackJack
         
         private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
         {
-            var w = new AuthWindow();
+            var w = new MenuWindow();
             w.ShowDialog();
             if (w.DialogResult == false) this.Close();
             else this.Visibility = Visibility.Visible;
