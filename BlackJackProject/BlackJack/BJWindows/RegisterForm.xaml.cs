@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlackJack.BJService;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,27 +16,27 @@ namespace BlackJack.BJWindows
             InitializeComponent();
         }
 
-        private static bool IsEmailAllowed(string text)
-        {
-            bool ValidEmail = false;
-            Regex regEMail = new Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-            if (text.Length > 0)
-            {
-                ValidEmail = regEMail.IsMatch(text);
-            }
+        //private static bool IsEmailAllowed(string text)
+        //{
+        //    bool ValidEmail = false;
+        //    Regex regEMail = new Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
+        //    if (text.Length > 0)
+        //    {
+        //        ValidEmail = regEMail.IsMatch(text);
+        //    }
 
-            return ValidEmail;
-        }
+        //    return ValidEmail;
+        //}
 
-        private void txtEmail_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (IsEmailAllowed(txtEmail.Text.Trim()) == false)
-            {
-                e.Handled = true;
-                MessageBox.Show("Введите E-Mail", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtEmail.Focus();
-            }
-        }
+        //private void txtEmail_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (IsEmailAllowed(txtEmail.Text.Trim()) == false)
+        //    {
+        //        e.Handled = true;
+        //        MessageBox.Show("Введите E-Mail", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        //        txtEmail.Focus();
+        //    }
+        //}
 
       
 
@@ -54,17 +55,17 @@ namespace BlackJack.BJWindows
 
         private void txtLogin_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (IsLoginAllowed(txtLogin.Text.Trim()) == false)
+            if (IsLoginAllowed(tbLogin.Text.Trim()) == false)
             {
                 e.Handled = true;
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtLogin.Focus();
+                tbLogin.Focus();
             }
         }
 
         private void Content_TextChanged(Object sender, RoutedEventArgs args)
         {
-            if (!txtPassw.Password.Equals(txtConfirmPassword.Password))
+            if (!pbPassword.Password.Equals(pbConfirmPassword.Password))
             {
                 RegisterButton.IsEnabled = false;
             }                
@@ -81,7 +82,16 @@ namespace BlackJack.BJWindows
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-        
+            if (ServiceProxy.Instance.Registration(tbLogin.Text, pbPassword.Password) >  0)
+            {
+                // temp message
+                MessageBox.Show("Registration successful !");
+            }
+            else
+            {
+                // temp message
+                MessageBox.Show("Somthing went wrong");
+            }
 
         }
     }

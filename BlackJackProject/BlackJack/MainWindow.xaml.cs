@@ -14,7 +14,7 @@ namespace BlackJack
     public partial class MainWindow : Window
     {
         private ServiceProxy service;
-        private List<PlayerView> players = new List<PlayerView>();
+        
 
         public MainWindow()
         {
@@ -79,7 +79,7 @@ namespace BlackJack
             }
             else
             {
-                Disconnect();
+                //Disconnect();
             }
         }
 

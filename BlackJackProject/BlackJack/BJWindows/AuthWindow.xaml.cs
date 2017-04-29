@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Text.RegularExpressions;
-
+using BlackJack.BJService;
 
 namespace BlackJack.BJWindows
 {
@@ -36,11 +36,11 @@ namespace BlackJack.BJWindows
 
         private void LoginTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (IsLoginAllowed(LoginTextBox.Text.Trim()) == false)
+            if (IsLoginAllowed(tbLogin.Text.Trim()) == false)
             {
                 e.Handled = true;
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoginTextBox.Focus();
+                tbLogin.Focus();
             }
         }
 
@@ -52,9 +52,19 @@ namespace BlackJack.BJWindows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            int x = ServiceProxy.Instance.Login(tbLogin.Text, tbPassword.Password);
+            if (x > 0)
+            {
+                // temp message
+                MessageBox.Show("True " + tbLogin.Text, x.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
 
-
-            DialogResult = true;
+                DialogResult = true;
+                // Connect
+            }
+            else
+            {
+                MessageBox.Show("Login or Password is incorrect");
+            }
         }
     }
 }

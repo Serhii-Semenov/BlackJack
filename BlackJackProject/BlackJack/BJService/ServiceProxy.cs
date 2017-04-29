@@ -15,7 +15,10 @@ namespace BlackJack.BJService
         public ClientCallback Callback { get; private set; }
         public GameServiceClient service { get; private set; }
 
+        private List<PlayerView> players = new List<PlayerView>();
+
         private static ServiceProxy instance;
+
         public static ServiceProxy Instance
         {
             get
