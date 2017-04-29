@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using BlackJack.BJService;
 using BlackJack.GameService;
+using BlackJack.Model;
 
 namespace BlackJack.BJWindows
 {
@@ -10,11 +11,11 @@ namespace BlackJack.BJWindows
     /// </summary>
     public partial class AuthWindow : Window
     {
-        
+        public string NickName { get; set; }
+
         public AuthWindow()
         {
             InitializeComponent();
-
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -58,7 +59,8 @@ namespace BlackJack.BJWindows
             {
                 // temp message
                 MessageBox.Show("True " + tbLogin.Text, x.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
-                
+
+                NickName = tbLogin.Text;
 
                 DialogResult = true;
                 // Connect

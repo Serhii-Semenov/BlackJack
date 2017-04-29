@@ -5,6 +5,7 @@ using BlackJack.GameService;
 using System.Collections.Generic;
 using System;
 using BlackJack.BJService;
+using BlackJack.Model;
 
 namespace BlackJack
 {
@@ -13,33 +14,38 @@ namespace BlackJack
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ServiceProxy service;
-        public Player CurentPlayer { get; set; }
-        
+
 
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                //service = ServiceProxy.Instance;
-                //MessageBox.Show("123");
-                //int t = service.Registration("gsf", "sdfsdf");
-                //MessageBox.Show("123");
-                //MessageBox.Show(t.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+        }
 
+        private void InitLogin()
+        {
+            var w = new AuthWindow();
+            w.ShowDialog();
+            if (w.DialogResult == false) this.Close();
+            else
+            {
+                var nickname = w.NickName;
+
+                if (ClientGameCore.Status == ClientStatus.Offline)
+                {
+                    Connect(nickname);
+                }
+                else
+                {
+                    Disconnect();
+                }
+            }
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             try
             {
-                service.Logout(ClientGameCore.Player.Id);
+                ServiceProxy.Instance.Logout(ClientGameCore.Player.Id);
                 base.OnClosing(e);
             }
             catch (Exception)
@@ -57,37 +63,20 @@ namespace BlackJack
         
         private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
         {
-            var w = new MenuWindow();
-            w.ShowDialog();
-            if (w.DialogResult == false) this.Close();
-            else this.Visibility = Visibility.Visible;
+            
         }
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            //return;
-
-            this.Visibility = Visibility.Hidden;
-            btnMenuWindow_Click(null, null);
-            
-        }
-
-        private void btnConnect_Click(object sender, RoutedEventArgs e)
-        {
-            if (ClientGameCore.Status == ClientStatus.Offline)
-            {
-                Connect(txtNickname.Text);
-            }
-            else
-            {
-                //Disconnect();
-            }
+            InitLogin();
         }
 
         private void Connect(string nickname)
         {
             try
             {
+                ServiceProxy.Instance.Connect(nickname);
+
                 var callback = new ClientCallback();
 
                 callback.PlayersUpdated += pl =>
@@ -99,12 +88,11 @@ namespace BlackJack
                 callback.GameStarted += callback_GameStarted;
                 callback.GamePlayerMoved += callback_GamePlayerMoved;
 
-                service = ServiceProxy.Instance;
-                //service = new GameServiceClient(new InstanceContext(callback));
-                var id = service.Login(nickname, null);
+                //service = ServiceProxy.Instance;
+                ////service = new GameServiceClient(new InstanceContext(callback));
+                var id = ServiceProxy.Instance.Login(nickname, null);
                 ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
                 ClientGameCore.Status = ClientStatus.Online;
-                btnConnect.Content = "Disconnect";
                 GetPlayers();
             }
             catch (Exception err)
@@ -113,19 +101,21 @@ namespace BlackJack
             }           
         }
 
-        private void callback_GamePlayerMoved(GamePlayer player)
+        internal static void callback_GameStarted(List<GamePlayer> players)
+        {
+            players.Clear();
+            foreach (var p in players)
+            {
+                //players.Add()
+            }
+        }
+
+        public static void callback_GamePlayerMoved(GamePlayer player)
         {
            
         }
 
-        private void callback_GameStarted(List<GamePlayer> players)
-        {
-            players.Clear();
-            foreach (var p in players)
-	        {
-		         //players.Add()
-	        }            
-        }
+
 
         private void GetPlayers()
         {
@@ -140,7 +130,7 @@ namespace BlackJack
             }
         }
 
-        private void UpdatePlayerList()
+        public void UpdatePlayerList()
         {
             lbxPlayers.Items.Clear();
             foreach (var p in ClientGameCore.Players.Players.Values)
@@ -153,10 +143,9 @@ namespace BlackJack
         {
             try
             {
-                service.Logout(ClientGameCore.Player.Id);
+                ServiceProxy.Instance.Logout(ClientGameCore.Player.Id);
                 ClientGameCore.Status = ClientStatus.Offline;
-                service.Close();
-                btnConnect.Content = "Connect";
+                ServiceProxy.Instance.Close();
             }
             catch (Exception err)
             {
