@@ -4,6 +4,8 @@ using System.ServiceModel;
 using BJDataLevel.Providers;
 using BJDataLevel.Providers.LocalDBProvider;
 using BlackJackWcfService.GameLogic;
+using BlackJackWcfService.Model;
+using System;
 
 namespace BlackJackWcfService
 {
@@ -53,9 +55,14 @@ namespace BlackJackWcfService
         //    GameCore.PlayerMove(id, x, y);
         //}
 
-        //public PlayerList GetPlayers()
-        //{
-        //    return GameCore.Players;
-        //}
+        public PlayerList GetPlayers()
+        {
+            return GameCore.Players;
+        }
+
+        PlayerList IGameService.GetPlayers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

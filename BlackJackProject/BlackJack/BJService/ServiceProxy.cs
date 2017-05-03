@@ -49,7 +49,7 @@ namespace BlackJack.BJService
 
         internal void Logout(int id)
         {
-            //service.Logout(id);
+           // service.Logout(id);
         }
 
         internal void Close()
@@ -63,16 +63,28 @@ namespace BlackJack.BJService
             return service.Login(login, password);
         }
 
-        internal void Connect(string nickname)
+        internal void Connect(string nickname, int id)
         {
-            var id = service.Login(nickname, null);
+            var callback = new ClientCallback();
+
+            callback.PlayersUpdated += pl =>
+            {
+                ClientGameCore.Players = pl;
+                MainWindow.UpdatePlayerList();
+            };
+
+            callback.GameStarted += MainWindow.callback_GameStarted;
+            callback.GamePlayerMoved += MainWindow.callback_GamePlayerMoved;
+
+            service = new GameServiceClient(new InstanceContext(callback));
+
             ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
             ClientGameCore.Status = ClientStatus.Online;
         }
 
-        private void UpdatePlayerList()
+        internal PlayerList GetPlayers()
         {
-            throw new NotImplementedException();
+            //return service.GetPlayers();
         }
     }
 }

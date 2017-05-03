@@ -10,11 +10,10 @@
         <StackPanel>
             <WrapPanel>
                 <TextBox Name="txtNickname" Text="Hitman" Width="100"/>
-                <Button Content="Connect" Name="btnConnect" Click="btnConnect_Click" />
                 <Label Name="lblStatus" />
             </WrapPanel>
-            <WrapPanel>
-                <ListBox Name="lbxPlayers" MinWidth="180" />
+            <WrapPanel Name="WrapPanelForList">
+                <!--<ListBox Name="lbxPlayers" MinWidth="180" />-->
             </WrapPanel>
         </StackPanel>
         <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="345,288,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>

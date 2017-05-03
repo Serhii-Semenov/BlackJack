@@ -5,7 +5,7 @@ using BlackJack.GameService;
 using System.Collections.Generic;
 using System;
 using BlackJack.BJService;
-using BlackJack.Model;
+using System.Windows.Controls;
 
 namespace BlackJack
 {
@@ -19,6 +19,10 @@ namespace BlackJack
         public MainWindow()
         {
             InitializeComponent();
+
+            ListBox lbxPlayers = new ListBox();
+            WrapPanelForList.Children.Add(lbxPlayers);
+
         }
 
         private void InitLogin()
@@ -71,11 +75,11 @@ namespace BlackJack
             InitLogin();
         }
 
-        private void Connect(string nickname)
+        private void Connect(string nickname, int _id)
         {
             try
             {
-                ServiceProxy.Instance.Connect(nickname);
+                ServiceProxy.Instance.Connect(nickname, _id);
 
                 var callback = new ClientCallback();
 
@@ -121,7 +125,7 @@ namespace BlackJack
         {
             try
             {
-                //ClientGameCore.Players = service.GetPlayers();
+                ClientGameCore.Players = ServiceProxy.Instance.GetPlayers();
                 UpdatePlayerList();
             }
             catch (Exception err)
@@ -130,7 +134,7 @@ namespace BlackJack
             }
         }
 
-        public void UpdatePlayerList()
+        public static void UpdatePlayerList()
         {
             lbxPlayers.Items.Clear();
             foreach (var p in ClientGameCore.Players.Players.Values)

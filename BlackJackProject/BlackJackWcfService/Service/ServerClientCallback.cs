@@ -1,4 +1,6 @@
-﻿namespace BlackJackWcfService.Service
+﻿using BlackJackWcfService.Model;
+
+namespace BlackJackWcfService.Service
 {
     class ServerClientCallback
     {
@@ -9,9 +11,9 @@
             this.callback = callback;
         }
 
-        //public void UpdatePlayerList(PlayerList players)
-        //{
-        //    callback.UpdatePlayerList(players);
-        //}
+        public void UpdatePlayerList(PlayerList players)
+        {
+            callback.UpdatePlayerList(players);
+        }
     }
 }
