@@ -4,16 +4,18 @@ namespace BlackJackWcfService.Service
 {
     class ServerClientCallback
     {
-        IClientCallback callback;
-
-        public ServerClientCallback(IClientCallback callback)
-        {
-            this.callback = callback;
-        }
+        IClientCallback Callback { get; set; }
+        public int Id { get; set; }
 
         public void UpdatePlayerList(PlayerList players)
         {
-            callback.UpdatePlayerList(players);
+            Callback.UpdatePlayerList(players);
+        }
+
+        public ServerClientCallback(int id, IClientCallback callback)
+        {
+           Callback = callback;
+           Id = id;
         }
     }
 }

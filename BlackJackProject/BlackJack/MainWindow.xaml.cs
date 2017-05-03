@@ -30,8 +30,6 @@ namespace BlackJack
             WrapPanelForList.Children.Add(lbxPlayers);
             lbxPlayers.Items.Add("Name ");
 
-            InitLogin();
-
         }
 
         private void InitLogin()
@@ -82,7 +80,7 @@ namespace BlackJack
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            //InitLogin();
+            InitLogin();
         }
 
         private void Connect(string nickname, int _id)

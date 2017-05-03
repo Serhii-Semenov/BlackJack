@@ -57,7 +57,7 @@ namespace BlackJack.BJWindows
             if (ID > 0)
             {
                 // temp message
-                MessageBox.Show("True " + tbLogin.Text, ID.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                // MessageBox.Show("True " + tbLogin.Text, ID.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
 
                 NickName = tbLogin.Text;
 

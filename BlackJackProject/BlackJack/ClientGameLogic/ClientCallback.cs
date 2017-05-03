@@ -12,8 +12,8 @@ namespace BlackJack.ClientGameLogic
 
         public void UpdatePlayerList(PlayerList players)
         {
-            //if (PlayersUpdated != null) PlayersUpdated(players);
-            PlayersUpdated?.Invoke(players);
+            if (PlayersUpdated != null) PlayersUpdated(players);
+            //PlayersUpdated?.Invoke(players);
         }
 
 

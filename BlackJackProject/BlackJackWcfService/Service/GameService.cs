@@ -10,12 +10,11 @@ using System.Linq;
 
 namespace BlackJackWcfService
 {
-    //[ServiceBehavior(IncludeExceptionDetailInFaults =true)]
     [ServiceBehavior(IncludeExceptionDetailInFaults = true, ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
 
     public class GameService : IGameService
     {
-        private static List<IClientCallback> callbackList = new List<IClientCallback>();
+        private static List<ServerClientCallback> callbackList = new List<ServerClientCallback>();
 
         public int Login(string login, string pasword)
         {
@@ -29,15 +28,15 @@ namespace BlackJackWcfService
             if (ID <= 0)  return ID;
 
             var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
-            if (!callbackList.Contains(callback))
+
+            if (!callbackList.Any(u => u.Id == ID))
             {
                 var player = new Player() { Id = ID, Nickname = login };
                 GameCore.AddPlayer(player, callback);
-                callbackList.Add(callback);
+                callbackList.Add(new ServerClientCallback(ID, callback));
                 SendPlayers(callback);
-                return ID;
             }
-            throw new Exception();
+            return ID;
         }
 
         public int Registration(string login, string pasword)
@@ -61,11 +60,11 @@ namespace BlackJackWcfService
             GameCore.Players.Players.Remove(id);
 
             var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
-            if (callbackList.Contains(callback))
+            var user = callbackList.FirstOrDefault(u => u.Id == id);
+            if (user != null)
             {
-                callbackList.Remove(callback);
+                callbackList.Remove(user);
             }
-
             SendPlayers(callback);
         }
 

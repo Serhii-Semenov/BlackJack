@@ -156,6 +156,12 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BJDataLevel\BJDataLevel.csproj">
+      <Project>{05CADC62-ED0C-4366-B07B-7849DB474E0D}</Project>
+      <Name>BJDataLevel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Service References\GameService\" />
   </ItemGroup>
   <ItemGroup>
@@ -169,12 +175,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BJDataLevel\BJDataLevel.csproj">
-      <Project>{05CADC62-ED0C-4366-B07B-7849DB474E0D}</Project>
-      <Name>BJDataLevel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
