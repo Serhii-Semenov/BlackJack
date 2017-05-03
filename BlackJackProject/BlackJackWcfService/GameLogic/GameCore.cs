@@ -10,9 +10,9 @@ namespace BlackJackWcfService.GameLogic
 {
     static class GameCore
     {
-        private static int nextPlayerId;
+        //private static int nextPlayerId;
 
-        public static int NextPlayerId { get { return ++nextPlayerId; } }
+        //public static int NextPlayerId { get { return ++nextPlayerId; } }
 
         public static PlayerList Players { get; set; }
 

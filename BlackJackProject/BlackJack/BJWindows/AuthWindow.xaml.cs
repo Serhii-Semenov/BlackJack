@@ -1,8 +1,6 @@
 ﻿using System.Windows;
 using System.Text.RegularExpressions;
 using BlackJack.BJService;
-using BlackJack.GameService;
-using BlackJack.Model;
 
 namespace BlackJack.BJWindows
 {
@@ -12,6 +10,7 @@ namespace BlackJack.BJWindows
     public partial class AuthWindow : Window
     {
         public string NickName { get; set; }
+        public int ID { get; set; }
 
         public AuthWindow()
         {
@@ -54,11 +53,11 @@ namespace BlackJack.BJWindows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            int x = ServiceProxy.Instance.Login(tbLogin.Text, tbPassword.Password);
-            if (x > 0)
+            ID = ServiceProxy.Instance.Login(tbLogin.Text, tbPassword.Password);
+            if (ID > 0)
             {
                 // temp message
-                MessageBox.Show("True " + tbLogin.Text, x.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("True " + tbLogin.Text, ID.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
 
                 NickName = tbLogin.Text;
 

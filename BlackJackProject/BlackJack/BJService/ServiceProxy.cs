@@ -49,7 +49,7 @@ namespace BlackJack.BJService
 
         internal void Logout(int id)
         {
-           // service.Logout(id);
+            service.Logout(id);
         }
 
         internal void Close()
@@ -78,13 +78,11 @@ namespace BlackJack.BJService
 
             service = new GameServiceClient(new InstanceContext(callback));
 
-            ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
-            ClientGameCore.Status = ClientStatus.Online;
         }
 
         internal PlayerList GetPlayers()
         {
-            //return service.GetPlayers();
+            return service.GetPlayers();
         }
     }
 }

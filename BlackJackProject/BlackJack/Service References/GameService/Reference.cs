@@ -211,6 +211,18 @@ namespace BlackJack.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Registration", ReplyAction="http://tempuri.org/IGameService/RegistrationResponse")]
         System.Threading.Tasks.Task<int> RegistrationAsync(string login, string pasword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Logout", ReplyAction="http://tempuri.org/IGameService/LogoutResponse")]
+        void Logout(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Logout", ReplyAction="http://tempuri.org/IGameService/LogoutResponse")]
+        System.Threading.Tasks.Task LogoutAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
+        BlackJack.GameService.PlayerList GetPlayers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
+        System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -268,6 +280,22 @@ namespace BlackJack.GameService {
         
         public System.Threading.Tasks.Task<int> RegistrationAsync(string login, string pasword) {
             return base.Channel.RegistrationAsync(login, pasword);
+        }
+        
+        public void Logout(int id) {
+            base.Channel.Logout(id);
+        }
+        
+        public System.Threading.Tasks.Task LogoutAsync(int id) {
+            return base.Channel.LogoutAsync(id);
+        }
+        
+        public BlackJack.GameService.PlayerList GetPlayers() {
+            return base.Channel.GetPlayers();
+        }
+        
+        public System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync() {
+            return base.Channel.GetPlayersAsync();
         }
     }
 }

@@ -59,10 +59,5 @@ namespace BlackJackWcfService
         {
             return GameCore.Players;
         }
-
-        PlayerList IGameService.GetPlayers()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

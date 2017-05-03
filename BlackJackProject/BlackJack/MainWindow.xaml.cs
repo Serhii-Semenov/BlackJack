@@ -6,22 +6,29 @@ using System.Collections.Generic;
 using System;
 using BlackJack.BJService;
 using System.Windows.Controls;
+using BJDataLevel.Model;
 
 namespace BlackJack
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private static ListBox lbxPlayers;
 
+        /// <summary>
+        /// Current player use from BJDataLevel.Model;
+        /// </summary>
+        private Players Plr = new Players(); 
+
+        public string NickName { get; set; }
+        public int ID { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            ListBox lbxPlayers = new ListBox();
+            lbxPlayers = new ListBox();
             WrapPanelForList.Children.Add(lbxPlayers);
+            lbxPlayers.Items.Add("Name ");
 
         }
 
@@ -32,11 +39,12 @@ namespace BlackJack
             if (w.DialogResult == false) this.Close();
             else
             {
-                var nickname = w.NickName;
+                Plr.Login = w.NickName;
+                Plr.Id = w.ID;
 
                 if (ClientGameCore.Status == ClientStatus.Offline)
                 {
-                    Connect(nickname);
+                    Connect(Plr.Login, Plr.Id);
                 }
                 else
                 {
@@ -80,22 +88,7 @@ namespace BlackJack
             try
             {
                 ServiceProxy.Instance.Connect(nickname, _id);
-
-                var callback = new ClientCallback();
-
-                callback.PlayersUpdated += pl =>
-                    {
-                        ClientGameCore.Players = pl;
-                        UpdatePlayerList();
-                    };
-
-                callback.GameStarted += callback_GameStarted;
-                callback.GamePlayerMoved += callback_GamePlayerMoved;
-
-                //service = ServiceProxy.Instance;
-                ////service = new GameServiceClient(new InstanceContext(callback));
-                var id = ServiceProxy.Instance.Login(nickname, null);
-                ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
+                ClientGameCore.Player = new Player() { Id = _id, Nickname = nickname };
                 ClientGameCore.Status = ClientStatus.Online;
                 GetPlayers();
             }
@@ -118,8 +111,6 @@ namespace BlackJack
         {
            
         }
-
-
 
         private void GetPlayers()
         {
