@@ -88,8 +88,8 @@ namespace BlackJack
             try
             {
                 ServiceProxy.Instance.Connect(nickname, _id);
-                ClientGameCore.Player = new Player() { Id = _id, Nickname = nickname };
-                ClientGameCore.Status = ClientStatus.Online;
+                //ClientGameCore.Player = new Player() { Id = _id, Nickname = nickname };
+                //ClientGameCore.Status = ClientStatus.Online;
                 GetPlayers();
             }
             catch (Exception err)

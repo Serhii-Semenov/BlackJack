@@ -25,6 +25,7 @@ namespace BlackJackWcfService
 
             IProvider provider = new ProviderLocalDB();
             var ID =  provider.LoginUser(login, pasword);
+
             if (ID <= 0)  return ID;
 
             var callback = OperationContext.Current.GetCallbackChannel<IClientCallback>();
@@ -35,8 +36,9 @@ namespace BlackJackWcfService
                 GameCore.AddPlayer(player, callback);
                 callbackList.Add(new ServerClientCallback(ID, callback));
                 SendPlayers(callback);
+                return ID;
             }
-            return ID;
+            return -1;
         }
 
         public int Registration(string login, string pasword)

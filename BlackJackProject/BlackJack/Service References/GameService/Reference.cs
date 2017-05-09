@@ -266,8 +266,8 @@ namespace BlackJack.GameService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public int Login(string login1, string pasword) {
-            return base.Channel.Login(login1, pasword);
+        public int Login(string login, string pasword) {
+            return base.Channel.Login(login, pasword);
         }
         
         public System.Threading.Tasks.Task<int> LoginAsync(string login, string pasword) {
