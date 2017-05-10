@@ -66,8 +66,7 @@ namespace BlackJack.BJService
         }
 
         internal void Connect(string nickname, int id)
-        {
-            Callback = new ClientCallback();
+        {            
             Initialized();
 
             //service = new GameServiceClient(new InstanceContext(callback));
