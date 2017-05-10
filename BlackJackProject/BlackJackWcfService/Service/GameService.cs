@@ -34,8 +34,9 @@ namespace BlackJackWcfService
             {
                 var player = new Player() { Id = ID, Nickname = login };
                 GameCore.AddPlayer(player, callback);
-                callbackList.Add(new ServerClientCallback(ID, callback));
-                SendPlayers(callback);
+                var c = new ServerClientCallback(ID, callback);
+                callbackList.Add(c);
+                SendPlayers(c);
                 return ID;
             }
             return -1;
@@ -48,7 +49,7 @@ namespace BlackJackWcfService
         }
 
 
-        private void SendPlayers(IClientCallback current)
+        private void SendPlayers(ServerClientCallback current)
         {
             foreach (var callback in callbackList)
             {
@@ -67,7 +68,7 @@ namespace BlackJackWcfService
             {
                 callbackList.Remove(user);
             }
-            SendPlayers(callback);
+            SendPlayers(user);
         }
 
 

@@ -12,6 +12,8 @@ namespace BlackJack.BJService
 {
     public class ServiceProxy
     {
+        public event Action Initialized;
+
         public ClientCallback Callback { get; private set; }
         public GameServiceClient service { get; private set; }
 
@@ -65,18 +67,10 @@ namespace BlackJack.BJService
 
         internal void Connect(string nickname, int id)
         {
-            var callback = new ClientCallback();
+            Callback = new ClientCallback();
+            Initialized();
 
-            callback.PlayersUpdated += pl =>
-            {
-                ClientGameCore.Players = pl;
-                MainWindow.UpdatePlayerList();
-            };
-
-            callback.GameStarted += MainWindow.callback_GameStarted;
-            callback.GamePlayerMoved += MainWindow.callback_GamePlayerMoved;
-
-            service = new GameServiceClient(new InstanceContext(callback));
+            //service = new GameServiceClient(new InstanceContext(callback));
 
             ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
             ClientGameCore.Status = ClientStatus.Online;

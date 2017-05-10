@@ -29,7 +29,19 @@ namespace BlackJack
             lbxPlayers = new ListBox();
             WrapPanelForList.Children.Add(lbxPlayers);
             lbxPlayers.Items.Add("Name ");
+            ServiceProxy.Instance.Initialized += Instance_Initialized;
+        }
 
+        void Instance_Initialized()
+        {
+            ServiceProxy.Instance.Callback.PlayersUpdated += pl =>
+            {
+                ClientGameCore.Players = pl;
+                UpdatePlayerList();
+            };
+
+            ServiceProxy.Instance.Callback.GameStarted += callback_GameStarted;
+            ServiceProxy.Instance.Callback.GamePlayerMoved += callback_GamePlayerMoved;
         }
 
         private void InitLogin()
@@ -98,7 +110,7 @@ namespace BlackJack
             }           
         }
 
-        internal static void callback_GameStarted(List<GamePlayer> players)
+        internal void callback_GameStarted(List<GamePlayer> players)
         {
             players.Clear();
             foreach (var p in players)
@@ -107,7 +119,7 @@ namespace BlackJack
             }
         }
 
-        public static void callback_GamePlayerMoved(GamePlayer player)
+        public void callback_GamePlayerMoved(GamePlayer player)
         {
            
         }
@@ -125,7 +137,7 @@ namespace BlackJack
             }
         }
 
-        public static void UpdatePlayerList()
+        public void UpdatePlayerList()
         {
             lbxPlayers.Items.Clear();
             foreach (var p in ClientGameCore.Players.Players.Values)
