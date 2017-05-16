@@ -27,10 +27,17 @@ namespace BlackJack.BJWindows
             
         }
 
-        public MenuWindow(string login, int coint)
+        public MenuWindow(string login, int coin)
         {
+            InitializeComponent();
 
+            InitPlayer(login, coin);
+        }
 
+        private void InitPlayer(string login, int coin)
+        {
+            lblCoin.Content = coin.ToString();
+            lblPlayerName.Content = login;
         }
 
         private void InitLogin()

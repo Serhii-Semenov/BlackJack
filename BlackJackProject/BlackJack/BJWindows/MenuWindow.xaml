@@ -5,8 +5,14 @@
         Title="Menu" Height="300" Width="300" MinHeight="300" MinWidth="250" MaxHeight="310" MaxWidth="350">
     <StackPanel>
         <DockPanel>
-            <Label DockPanel.Dock="Left" Content="Меню" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
-            <Label x:Name="lblPlayerName" DockPanel.Dock="Right" Content="Имя игрока" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            <WrapPanel DockPanel.Dock="Left">
+                <Label DockPanel.Dock="Left" Content="Coin : " HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+                <Label Name="lblCoin"  Content="" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            </WrapPanel>
+            <WrapPanel DockPanel.Dock="Right">
+            <Label Content="Имя игрока : " HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+                <Label x:Name="lblPlayerName" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            </WrapPanel>
             <Line></Line>
         </DockPanel>
         <Button x:Name="btnGameSolo" Content="Игра с компьютером" Margin="50 5" Width="Auto" d:LayoutOverrides="Height" Click="btnGameSolo_Click"/>
