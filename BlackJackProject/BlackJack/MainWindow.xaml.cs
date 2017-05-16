@@ -44,7 +44,7 @@ namespace BlackJack
             ServiceProxy.Instance.Callback.GamePlayerMoved += callback_GamePlayerMoved;
         }
 
-        private void InitLogin()
+        private void InitAuth()
         {
             var w = new AuthWindow();
             w.ShowDialog();
@@ -57,12 +57,20 @@ namespace BlackJack
                 if (ClientGameCore.Status == ClientStatus.Offline)
                 {
                     Connect(Plr.Login, Plr.Id);
+                    InitMenu();
                 }
                 else
                 {
                     Disconnect();
                 }
             }
+        }
+
+        private void InitMenu()
+        {
+            var w = new MenuWindow(Plr.Login, 1000); // костыль
+            w.ShowDialog();
+            if (w.DialogResult == false) this.Close();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -92,7 +100,7 @@ namespace BlackJack
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            InitLogin();
+            InitAuth();
         }
 
         private void Connect(string nickname, int _id)

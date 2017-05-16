@@ -27,6 +27,12 @@ namespace BlackJack.BJWindows
             
         }
 
+        public MenuWindow(string login, int coint)
+        {
+
+
+        }
+
         private void InitLogin()
         {
             while (true)
