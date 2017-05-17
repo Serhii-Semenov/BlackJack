@@ -1,6 +1,4 @@
-﻿
-﻿using BlackJackWcfService.Service;
-﻿using BlackJackWcfService.Service;
+﻿﻿using BlackJackWcfService.Service;
 using BlackJack.GameService;
 using System;
 using System.Collections.Generic;
