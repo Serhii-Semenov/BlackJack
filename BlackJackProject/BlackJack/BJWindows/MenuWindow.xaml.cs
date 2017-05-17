@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlackJack.BJService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,7 +71,8 @@ namespace BlackJack.BJWindows
 
         private void btnGetCredit_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            //TODO
+            //ServiceProxy.Instance.service.
         }
 
         private void btnRule_Click(object sender, RoutedEventArgs e)

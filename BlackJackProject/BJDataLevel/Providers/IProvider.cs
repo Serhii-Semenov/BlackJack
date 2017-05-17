@@ -11,5 +11,9 @@ namespace BJDataLevel.Providers
 
         int RegistationUser(string login, string password);
 
+        int GetBalanse(int id);
+
+        int ChangeBalance(int id, int coins);
+        int GetCredit(int id);
     }
 }

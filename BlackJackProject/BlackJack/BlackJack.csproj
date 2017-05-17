@@ -83,11 +83,6 @@
     <Compile Include="ClientGameLogic\ClientStatus.cs" />
     <Compile Include="ClientGameLogic\PlayerView.cs" />
     <Compile Include="BJService\ServiceProxy.cs" />
-    <Compile Include="Service References\GameService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Page Include="BJWindows\AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,22 +180,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\GameService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GameService\BlackJack.GameService.PlayerList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\GameService\BlackJackWcfService.Model.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GameService\service.wsdl" />
-    <None Include="Service References\GameService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GameService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -213,21 +192,6 @@
       <Project>{05CADC62-ED0C-4366-B07B-7849DB474E0D}</Project>
       <Name>BJDataLevel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GameService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\MetroDark\HowToApplyTheme.txt" />

@@ -19,5 +19,12 @@ namespace BlackJackWcfService
 
         [OperationContract]
         PlayerList GetPlayers();
+
+        [OperationContract]
+        int GetBalanse(int id);
+        [OperationContract]
+        int ChangeBalance(int id, int coins);
+        [OperationContract]
+        int GetCredit(int id);
     }
 }

@@ -40,8 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameLogic\GameCore.cs" />
-    <Compile Include="GameLogic\Room.cs" />
     <Compile Include="Model\Ccard.cs" />
     <Compile Include="Model\CDeck.cs" />
     <Compile Include="Model\enums.cs" />

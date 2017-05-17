@@ -80,5 +80,10 @@ namespace BlackJack.BJService
         {
             return service.GetPlayers();
         }
+
+        internal int GetBalanse(int p)
+        {
+            return service.GetBalanse(p);
+        }
     }
 }

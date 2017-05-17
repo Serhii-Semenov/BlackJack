@@ -4,10 +4,11 @@ using System.Runtime.Serialization;
 
 namespace BJLogicLevel.Model
 {
+    [DataContract]
     public class GamesRoom
     {
         [DataMember]
-        int id { get; set;}
+        int id { get; set; }
         CDeck dec;
         List<Player> PlList;
 

@@ -223,6 +223,24 @@ namespace BlackJack.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
         System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetBalanse", ReplyAction="http://tempuri.org/IGameService/GetBalanseResponse")]
+        int GetBalanse(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetBalanse", ReplyAction="http://tempuri.org/IGameService/GetBalanseResponse")]
+        System.Threading.Tasks.Task<int> GetBalanseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ChangeBalance", ReplyAction="http://tempuri.org/IGameService/ChangeBalanceResponse")]
+        int ChangeBalance(int id, int coins);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ChangeBalance", ReplyAction="http://tempuri.org/IGameService/ChangeBalanceResponse")]
+        System.Threading.Tasks.Task<int> ChangeBalanceAsync(int id, int coins);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetCredit", ReplyAction="http://tempuri.org/IGameService/GetCreditResponse")]
+        int GetCredit(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetCredit", ReplyAction="http://tempuri.org/IGameService/GetCreditResponse")]
+        System.Threading.Tasks.Task<int> GetCreditAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -296,6 +314,30 @@ namespace BlackJack.GameService {
         
         public System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync() {
             return base.Channel.GetPlayersAsync();
+        }
+        
+        public int GetBalanse(int id) {
+            return base.Channel.GetBalanse(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetBalanseAsync(int id) {
+            return base.Channel.GetBalanseAsync(id);
+        }
+        
+        public int ChangeBalance(int id, int coins) {
+            return base.Channel.ChangeBalance(id, coins);
+        }
+        
+        public System.Threading.Tasks.Task<int> ChangeBalanceAsync(int id, int coins) {
+            return base.Channel.ChangeBalanceAsync(id, coins);
+        }
+        
+        public int GetCredit(int id) {
+            return base.Channel.GetCredit(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCreditAsync(int id) {
+            return base.Channel.GetCreditAsync(id);
         }
     }
 }

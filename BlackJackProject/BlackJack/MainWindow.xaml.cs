@@ -68,7 +68,7 @@ namespace BlackJack
 
         private void InitMenu()
         {
-            var w = new MenuWindow(Plr.Login, 1000); // костыль
+            var w = new MenuWindow(Plr.Login, ServiceProxy.Instance.GetBalanse(Plr.Id)); // костыль
             w.ShowDialog();
             if (w.DialogResult == false) this.Close();
         }

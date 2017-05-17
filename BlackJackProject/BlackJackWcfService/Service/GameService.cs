@@ -71,6 +71,25 @@ namespace BlackJackWcfService
             SendPlayers(user);
         }
 
+        public int GetBalanse(int id)
+        {
+            IProvider provider = new ProviderLocalDB();
+            return provider.GetBalanse(id);
+        }
+
+
+
+        public int ChangeBalance(int id, int coins)
+        {
+            IProvider provider = new ProviderLocalDB();
+            return provider.ChangeBalance(id, coins);
+        }
+
+        public int GetCredit(int id)
+        {
+            IProvider provider = new ProviderLocalDB();
+            return provider.GetCredit(id);
+        }
 
         //public void PlayerMove(int id, int x, int y)
         //{
