@@ -20,6 +20,7 @@ namespace BlackJack.BJWindows
     /// </summary>
     public partial class MenuWindow : Window
     {
+        public int Game { get; set; }
         public MenuWindow()
         {
             InitializeComponent();
@@ -59,7 +60,8 @@ namespace BlackJack.BJWindows
 
         private void btnGameSolo_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            Game = 1;
+            DialogResult = true;
         }
 
         private void btnGameRoom_Click(object sender, RoutedEventArgs e)
@@ -87,7 +89,11 @@ namespace BlackJack.BJWindows
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            
+            var v = MessageBox.Show("Вы уверенны?", "Выйти из аккаунта", MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.OK);
+            if (v == MessageBoxResult.Cancel) return;
+            Game = -1; // LOGOUT
+            DialogResult = true;
         }
     }
 }

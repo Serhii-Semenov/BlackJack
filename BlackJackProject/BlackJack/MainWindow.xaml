@@ -17,7 +17,7 @@
             </WrapPanel>
         </StackPanel>
         <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="345,288,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
-        <Button x:Name="btnMenuWindow" Content="menuWindow" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75" Click="btnMenuWindow_Click"/>
+        <Button x:Name="btnMenuWindow" Content="menuWindow" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 

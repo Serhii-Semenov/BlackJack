@@ -6,7 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using BlackJack.GameService;
+using BlackJack.ServiceReference;
 
 namespace BlackJack.BJService
 {
