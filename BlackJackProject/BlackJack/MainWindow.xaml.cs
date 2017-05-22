@@ -186,5 +186,6 @@ namespace BlackJack
                  MessageBox.Show(err.Message);
             }
         }
+
     }
 }

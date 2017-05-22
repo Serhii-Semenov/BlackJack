@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlackJack"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Name="MainWindowGrid" Margin="0,0,15,0" Loaded="MainWindowGrid_Loaded" >
-        <StackPanel>
-            <WrapPanel>
-                <TextBox Name="txtNickname" Text="Players : " Width="100"/>
-                <Label Name="lblStatus" />
-            </WrapPanel>
-            <WrapPanel Name="WrapPanelForList">
-                <!--<ListBox Name="lbxPlayers" MinWidth="180" />-->
-            </WrapPanel>
-        </StackPanel>
-        <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="345,288,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
-        <Button x:Name="btnMenuWindow" Content="menuWindow" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75"/>
-
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Name="MainWindowGrid" Margin="0,0,15,0" Loaded="MainWindowGrid_Loaded">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Height="150" Background="Green">
+                <WrapPanel>
+                    <TextBox Name="txtNickname" Text="Players : " Width="100"/>
+                    <Label Name="lblStatus" />
+                </WrapPanel>
+                <WrapPanel Name="WrapPanelForList">
+                    <!--<ListBox Name="lbxPlayers" MinWidth="180" />-->
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Height="150" Background="LightBlue"></StackPanel>
+            <StackPanel DockPanel.Dock="Left" Width="150" Background="Aqua"></StackPanel>
+            <StackPanel DockPanel.Dock="Right" Width="150" Background="Gold"></StackPanel>
+            <StackPanel Background="LightGreen"></StackPanel>
+        </DockPanel>
     </Grid>
 
 </Window>
