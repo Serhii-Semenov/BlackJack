@@ -61,6 +61,7 @@ namespace BlackJack.BJWindows
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 tbLogin.Focus();
             }
+            return;
         }
 
         private void Content_TextChanged(Object sender, RoutedEventArgs args)
