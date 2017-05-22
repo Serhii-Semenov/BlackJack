@@ -4,18 +4,17 @@ using System.Runtime.Serialization;
 
 namespace BJLogicLevel.Model
 {
-    [DataContract]
+   
     public class GamesRoom
     {
-        [DataMember]
-        int id { get; set; }
+        public int id { get; private set; }
         CDeck dec;
-        List<Player> PlList;
-
+        public List<Player> PlList;
         public GamesRoom()
         {
             dec = new CDeck();
             PlList = new List<Player>();
+            id = GamesNumber.getInstance();
         }
 
         public void NewGame()
@@ -41,9 +40,9 @@ namespace BJLogicLevel.Model
             return temp;
         }
 
-        public List<int> CkeckWin()
+        public List<Player> CkeckWin()
         {
-            List<int> Win = new List<int>();
+            List<Player> Win = new List<Player>();
             int max = 0;
             int temp;
             foreach (var players in PlList)
@@ -65,7 +64,7 @@ namespace BJLogicLevel.Model
                     temp += cardpoint.points;
                 }
                 if (temp == max)
-                    Win.Add(players.Id);
+                    Win.Add(players);
             }
             return Win;
         }

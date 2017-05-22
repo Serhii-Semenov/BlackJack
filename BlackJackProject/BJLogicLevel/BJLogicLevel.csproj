@@ -43,7 +43,8 @@
     <Compile Include="Model\Ccard.cs" />
     <Compile Include="Model\CDeck.cs" />
     <Compile Include="Model\enums.cs" />
-    <Compile Include="Model\GamePlayer.cs" />
+    <Compile Include="Model\GameCore.cs" />
+    <Compile Include="Model\GamesNumber.cs" />
     <Compile Include="Model\GamesRoom.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\PlayerList.cs" />
