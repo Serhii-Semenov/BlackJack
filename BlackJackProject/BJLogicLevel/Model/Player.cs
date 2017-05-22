@@ -21,7 +21,7 @@ namespace BlackJackWcfService.Model
 
         [DataMember]
         public int Rate { get; set; }
-        
+
         [DataMember]
         public List<Ccard> CardList;
 

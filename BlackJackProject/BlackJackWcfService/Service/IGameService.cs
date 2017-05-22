@@ -17,7 +17,11 @@ namespace BlackJackWcfService
         [OperationContract]
         void Logout(int id);
 
-        [OperationContract]
-        PlayerList GetPlayers();
+        //[OperationContract]
+        //int PlayerWisComp();
+
+
+        //[OperationContract]
+        //PlayerList GetPlayers();
     }
 }

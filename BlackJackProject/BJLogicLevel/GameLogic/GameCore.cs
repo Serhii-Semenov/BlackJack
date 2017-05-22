@@ -1,17 +1,97 @@
 ﻿
-﻿using BlackJackWcfService.Service;
-﻿using BlackJackWcfService.Service;
-using BlackJack.GameService;
-using System;
+using BJLogicLevel.Model;
+using BlackJackWcfService.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BJLogicLevel.GameLogic
 {
     static class GameCore
     {
+        private static List<GamesRoom> rooms;
+
+        static GameCore()
+        {
+           rooms = new List<GamesRoom>();
+        }
+
+        static int PlayerWisComp(Player pl, int rate)
+        {
+            GamesRoom temp = new GamesRoom(rate);
+            Player comp = new Player { Nickname = "comp", Id = -1, Money = 1000, Rate = 20 };
+            temp.PlList.Add(pl);
+            temp.PlList.Add(comp);
+            rooms.Add(temp);
+            return temp.id;
+        }
+
+        static void NewGame(int id, int rate)
+        {
+            foreach (var temp in rooms)
+                if (temp.id == id)
+                {
+                    temp.NewGame();
+                }
+        }
+
+        static Ccard GiveCard(int id, Player pl)
+        {
+            foreach (var temp in rooms)
+                if (temp.id == id)
+                {
+                    foreach (var temp2 in temp.PlList)
+                    {
+                        if (temp2 == pl)
+                        {
+                            return temp.GiveCard(pl);
+                        }
+                    }
+                }
+           return new Ccard();
+        }
+
+
+        static void GoBot(int id)
+        {
+            int point=0;
+            int pointbot=0;
+            foreach (var temp in rooms)
+                if (temp.id == id)
+                {
+                    foreach (var temp2 in temp.PlList)
+                    {
+                        if (temp2.Nickname != "comp")
+                        {
+
+                            foreach (var cardpoint in temp2.CardList)
+                            {
+                                point += cardpoint.points;
+                            }
+                        }
+                    }
+                }
+            if (point > 21)
+                return;
+            while (pointbot < point && pointbot < 22)
+            {
+                foreach (var temp in rooms)
+                    if (temp.id == id)
+                    {
+                        foreach (var temp2 in temp.PlList)
+                        {
+                            if (temp2.Nickname == "comp")
+                            {
+                                Ccard car = temp.GiveCard(temp2);
+                                pointbot += car.points;
+                            }
+                        }
+                    }
+            }
+        }
+
+
+
+
         //private static int nextPlayerId;
 
         //public static int NextPlayerId { get { return ++nextPlayerId; } }

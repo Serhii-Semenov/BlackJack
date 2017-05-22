@@ -6,15 +6,17 @@ namespace BJLogicLevel.Model
 {
     public class GamesRoom
     {
-        [DataMember]
-        int id { get; set;}
+        public int id { get; set;}
         CDeck dec;
-        List<Player> PlList;
+        public List<Player> PlList;
+        public int rate;
 
-        public GamesRoom()
+        public GamesRoom(int r)
         {
             dec = new CDeck();
             PlList = new List<Player>();
+            id = Singleton.getInstance().IDGame++;
+            rate = r;
         }
 
         public void NewGame()
@@ -26,23 +28,16 @@ namespace BJLogicLevel.Model
             }
         }
 
-        public Ccard GiveCard(int playerId)
+        public Ccard GiveCard(Player player)
         {
             Ccard temp = dec.deck.Dequeue();
-            foreach (var players in PlList)
-            {
-                if (players.Id == playerId)
-                {
-                    players.CardList.Add(temp);
-                    break;
-                }
-            }
+            player.CardList.Add(temp);
             return temp;
         }
 
-        public List<int> CkeckWin()
+        public List<Player> CkeckWin()
         {
-            List<int> Win = new List<int>();
+            List<Player> Win = new List<Player>();
             int max = 0;
             int temp;
             foreach (var players in PlList)
@@ -64,7 +59,7 @@ namespace BJLogicLevel.Model
                     temp += cardpoint.points;
                 }
                 if (temp == max)
-                    Win.Add(players.Id);
+                    Win.Add(players);
             }
             return Win;
         }

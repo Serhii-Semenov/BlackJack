@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace BlackJackWcfService.Model
 {
-    [DataContract]
-    public class Player
-    {
-        [DataMember]
-        public int Id { get; set; }
+    //[DataContract]
+    //public class Player
+    //{
+    //    [DataMember]
+    //    public int Id { get; set; }
 
-        [DataMember]
-        public string Nickname { get; set; }
-    }
+    //    [DataMember]
+    //    public string Nickname { get; set; }
+
+    //    }
 }
