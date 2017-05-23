@@ -18,6 +18,7 @@
                 </WrapPanel>
             </StackPanel>
             <StackPanel DockPanel.Dock="Bottom" Height="150" Background="LightBlue"></StackPanel>
+            <StackPanel DockPanel.Dock="Top" Height="150" Background="LightGreen"></StackPanel>
             <StackPanel DockPanel.Dock="Left" Width="150" Background="Aqua"></StackPanel>
             <StackPanel DockPanel.Dock="Right" Width="150" Background="Gold"></StackPanel>
             <StackPanel Background="LightGreen"></StackPanel>

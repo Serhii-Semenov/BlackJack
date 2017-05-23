@@ -83,6 +83,7 @@
     <Compile Include="ClientGameLogic\ClientStatus.cs" />
     <Compile Include="ClientGameLogic\PlayerView.cs" />
     <Compile Include="BJService\ServiceProxy.cs" />
+    <Compile Include="Model\CardsView.cs" />
     <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
