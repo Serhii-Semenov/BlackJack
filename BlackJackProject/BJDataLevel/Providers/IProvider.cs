@@ -15,5 +15,7 @@ namespace BJDataLevel.Providers
 
         int ChangeBalance(int id, int coins);
         int GetCredit(int id);
+
+        string GetNameById(int id);
     }
 }

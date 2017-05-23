@@ -86,5 +86,13 @@ namespace BJDataLevel.Providers.LocalDBProvider
                 return bl.Balance;
             }
         }
+
+        public string GetNameById(int id)
+        {
+            using (BJContext db = new BJContext())
+            {
+                return db.Players.Where(p => p.Id == id).Select(p => p.Login).FirstOrDefault();
+            }
+       }
     }
 }

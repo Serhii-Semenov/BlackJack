@@ -71,13 +71,14 @@ namespace BlackJackWcfService
             SendPlayers(user);
         }
 
-        int IGameService.PlayerWisComp(int idPlayer)
+        int IGameService.PlayerWisComp(int idPlayer) //возвращает ид игровой комнаты
         {
+            IProvider provider = new ProviderLocalDB();
             BlackJackWcfService.Model.Player pl = new Player();
             pl.Id = idPlayer;
-            // pl.
-            return 0;
-            //BJLogicLevel.GameLogic.GameCore.PlayerWisComp
+            pl.Money = provider.GetBalanse(idPlayer);
+            pl.Nickname = provider.GetNameById(idPlayer);
+            return BJLogicLevel.Model.GameCore.PlayerWisComp(pl, 20);
         }
 
         public int GetBalanse(int id)
