@@ -71,15 +71,16 @@ namespace BlackJackWcfService
             SendPlayers(user);
         }
 
-
-        //public void PlayerMove(int id, int x, int y)
-        //{
-        //    GameCore.PlayerMove(id, x, y);
-        //}
-
-        public PlayerList GetPlayers()
+      
+        int IGameService.PlayerWisComp(int idPlayer)
         {
-            return GameCore.Players;
+            BlackJackWcfService.Model.Player pl = new Player();
+            pl.Id = idPlayer;
+           // pl.
+
+
+            return 0;
+            //BJLogicLevel.GameLogic.GameCore.PlayerWisComp
         }
     }
 }

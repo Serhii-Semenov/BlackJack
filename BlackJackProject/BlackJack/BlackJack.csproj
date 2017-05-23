@@ -135,9 +135,6 @@
     <None Include="Service References\GameService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GameService\BlackJack.GameService.PlayerList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\GameService\BlackJackWcfService.Model.xsd">
       <SubType>Designer</SubType>
     </None>

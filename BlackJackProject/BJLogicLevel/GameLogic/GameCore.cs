@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace BJLogicLevel.GameLogic
 {
-    static class GameCore
+    public static class GameCore
     {
         private static List<GamesRoom> rooms;
 
@@ -15,7 +15,7 @@ namespace BJLogicLevel.GameLogic
            rooms = new List<GamesRoom>();
         }
 
-        static int PlayerWisComp(Player pl, int rate)
+       public static int PlayerWisComp(Player pl, int rate)
         {
             GamesRoom temp = new GamesRoom(rate);
             Player comp = new Player { Nickname = "comp", Id = -1, Money = 1000, Rate = 20 };
@@ -25,7 +25,7 @@ namespace BJLogicLevel.GameLogic
             return temp.id;
         }
 
-        static void NewGame(int id, int rate)
+        public static void NewGame(int id, int rate)
         {
             foreach (var temp in rooms)
                 if (temp.id == id)
@@ -34,7 +34,7 @@ namespace BJLogicLevel.GameLogic
                 }
         }
 
-        static Ccard GiveCard(int id, Player pl)
+       public static Ccard GiveCard(int id, Player pl)
         {
             foreach (var temp in rooms)
                 if (temp.id == id)
@@ -51,7 +51,7 @@ namespace BJLogicLevel.GameLogic
         }
 
 
-        static void GoBot(int id)
+        public static void GoBot(int id)
         {
             int point=0;
             int pointbot=0;

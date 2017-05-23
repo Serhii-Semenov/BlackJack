@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BJDataLevel\BJDataLevel.csproj">
+      <Project>{05cadc62-ed0c-4366-b07b-7849db474e0d}</Project>
+      <Name>BJDataLevel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BJLogicLevel\BJLogicLevel.csproj">
       <Project>{2d73a7f6-4112-48bf-a301-ebb50255b65b}</Project>
       <Name>BJLogicLevel</Name>

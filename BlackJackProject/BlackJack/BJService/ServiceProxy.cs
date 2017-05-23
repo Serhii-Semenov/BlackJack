@@ -76,9 +76,9 @@ namespace BlackJack.BJService
 
         }
 
-        internal PlayerList GetPlayers()
-        {
-            return service.GetPlayers();
-        }
+        //internal PlayerList GetPlayers()
+        //{
+        //    return service.GetPlayers();
+        //}
     }
 }

@@ -134,15 +134,15 @@ namespace BlackJack
 
         private void GetPlayers()
         {
-            try
-            {
-                ClientGameCore.Players = ServiceProxy.Instance.GetPlayers();
-                UpdatePlayerList();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
+            //try
+            //{
+            //    ClientGameCore.Players = ServiceProxy.Instance.GetPlayers();
+            //    UpdatePlayerList();
+            //}
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show(err.Message);
+            //}
         }
 
         public void UpdatePlayerList()

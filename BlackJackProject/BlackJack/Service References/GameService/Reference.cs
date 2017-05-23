@@ -68,10 +68,19 @@ namespace BlackJack.GameService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private BlackJack.GameService.Ccard[] CardListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MoneyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NicknameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -80,6 +89,19 @@ namespace BlackJack.GameService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public BlackJack.GameService.Ccard[] CardList {
+            get {
+                return this.CardListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardListField, value) != true)) {
+                    this.CardListField = value;
+                    this.RaisePropertyChanged("CardList");
+                }
             }
         }
         
@@ -97,6 +119,19 @@ namespace BlackJack.GameService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Money {
+            get {
+                return this.MoneyField;
+            }
+            set {
+                if ((this.MoneyField.Equals(value) != true)) {
+                    this.MoneyField = value;
+                    this.RaisePropertyChanged("Money");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Nickname {
             get {
                 return this.NicknameField;
@@ -105,6 +140,19 @@ namespace BlackJack.GameService {
                 if ((object.ReferenceEquals(this.NicknameField, value) != true)) {
                     this.NicknameField = value;
                     this.RaisePropertyChanged("Nickname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rate {
+            get {
+                return this.RateField;
+            }
+            set {
+                if ((this.RateField.Equals(value) != true)) {
+                    this.RateField = value;
+                    this.RaisePropertyChanged("Rate");
                 }
             }
         }
@@ -196,6 +244,147 @@ namespace BlackJack.GameService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ccard", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
+    [System.SerializableAttribute()]
+    public partial class Ccard : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private BlackJack.GameService.Fase nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int pointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private BlackJack.GameService.Suit suitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public BlackJack.GameService.Fase name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((this.nameField.Equals(value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int points {
+            get {
+                return this.pointsField;
+            }
+            set {
+                if ((this.pointsField.Equals(value) != true)) {
+                    this.pointsField = value;
+                    this.RaisePropertyChanged("points");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public BlackJack.GameService.Suit suit {
+            get {
+                return this.suitField;
+            }
+            set {
+                if ((this.suitField.Equals(value) != true)) {
+                    this.suitField = value;
+                    this.RaisePropertyChanged("suit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Fase", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
+    public enum Fase : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deuce = 50,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Three = 51,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Four = 52,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Five = 53,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Six = 54,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Seven = 55,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Eight = 56,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nine = 57,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ten = 58,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jack = 74,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Queen = 81,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        King = 75,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ace = 84,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Zero = 255,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Suit", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
+    public enum Suit : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Heart = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Club = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Diamond = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spade = 6,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameService.IGameService", CallbackContract=typeof(BlackJack.GameService.IGameServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IGameService {
@@ -217,12 +406,6 @@ namespace BlackJack.GameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Logout", ReplyAction="http://tempuri.org/IGameService/LogoutResponse")]
         System.Threading.Tasks.Task LogoutAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
-        BlackJack.GameService.PlayerList GetPlayers();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
-        System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -288,14 +471,6 @@ namespace BlackJack.GameService {
         
         public System.Threading.Tasks.Task LogoutAsync(int id) {
             return base.Channel.LogoutAsync(id);
-        }
-        
-        public BlackJack.GameService.PlayerList GetPlayers() {
-            return base.Channel.GetPlayers();
-        }
-        
-        public System.Threading.Tasks.Task<BlackJack.GameService.PlayerList> GetPlayersAsync() {
-            return base.Channel.GetPlayersAsync();
         }
     }
 }
