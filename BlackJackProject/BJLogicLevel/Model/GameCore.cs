@@ -1,10 +1,10 @@
-﻿
 using BJLogicLevel.Model;
 using BlackJackWcfService.Model;
+﻿using System;
 using System.Collections.Generic;
 
 
-namespace BJLogicLevel.GameLogic
+namespace BJLogicLevel.Model
 {
     public static class GameCore
     {
@@ -93,14 +93,24 @@ namespace BJLogicLevel.GameLogic
 
 
         //private static int nextPlayerId;
+		
+        private static GamesRoom currentRoom = new GamesRoom();
+        private static List<GamesRoom> rooms = new List<GamesRoom>();
+		
 
-        //public static int NextPlayerId { get { return ++nextPlayerId; } }
+        public static int CreateNewGameRoom()
+        {
+            GamesRoom temp = new GamesRoom();
+            rooms.Add(temp);
+            return temp.id;
+        }
 
-        //public static PlayerList Players { get; set; }
+        public static GamesRoom GiveGameRoom(int id)
+        {
+            return rooms.Where(p => p.id == id).FirstOrDefault();
+        }
 
-        //private static int roomCapacity = 2;
-        //private static Room currentRoom = new Room();
-        //private static List<Room> rooms = new List<Room>();
+  
 
 
         //static GameCore()

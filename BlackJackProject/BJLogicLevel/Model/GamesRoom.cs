@@ -4,8 +4,10 @@ using System.Runtime.Serialization;
 
 namespace BJLogicLevel.Model
 {
+   
     public class GamesRoom
     {
+<<<<<<< HEAD
         public int id { get; set;}
         CDeck dec;
         public List<Player> PlList;
@@ -17,6 +19,16 @@ namespace BJLogicLevel.Model
             PlList = new List<Player>();
             id = Singleton.getInstance().IDGame++;
             rate = r;
+=======
+        public int id { get; private set; }
+        CDeck dec;
+        public List<Player> PlList;
+        public GamesRoom()
+        {
+            dec = new CDeck();
+            PlList = new List<Player>();
+            id = GamesNumber.getInstance();
+>>>>>>> develop
         }
 
         public void NewGame()

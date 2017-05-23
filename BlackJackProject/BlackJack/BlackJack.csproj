@@ -83,11 +83,13 @@
     <Compile Include="ClientGameLogic\ClientStatus.cs" />
     <Compile Include="ClientGameLogic\PlayerView.cs" />
     <Compile Include="BJService\ServiceProxy.cs" />
-    <Compile Include="Service References\GameService\Reference.cs">
+    <Compile Include="Model\CardsView.cs" />
+    <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="View\Gamer.cs" />
     <Page Include="BJWindows\AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,17 +187,24 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\GameService\Arrays.xsd">
+    <None Include="Service References\ServiceReference\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
+<<<<<<< HEAD
     <None Include="Service References\GameService\BlackJackWcfService.Model.xsd">
+=======
+    <None Include="Service References\ServiceReference\BlackJack.ServiceReference.PlayerList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference\BlackJackWcfService.Model.xsd">
+>>>>>>> develop
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GameService\service.wsdl" />
-    <None Include="Service References\GameService\service.xsd">
+    <None Include="Service References\ServiceReference\service.wsdl" />
+    <None Include="Service References\ServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GameService\service1.xsd">
+    <None Include="Service References\ServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -210,27 +219,31 @@
       <Project>{05CADC62-ED0C-4366-B07B-7849DB474E0D}</Project>
       <Name>BJDataLevel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GameService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GameService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\BJLogicLevel\BJLogicLevel.csproj">
+      <Project>{2d73a7f6-4112-48bf-a301-ebb50255b65b}</Project>
+      <Name>BJLogicLevel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\MetroDark\HowToApplyTheme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\Metro\HowToApplyTheme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

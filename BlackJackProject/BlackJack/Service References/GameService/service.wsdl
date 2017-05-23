@@ -59,6 +59,33 @@
   <wsdl:message name="IGameService_Logout_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogoutResponse" />
   </wsdl:message>
+<<<<<<< HEAD
+=======
+  <wsdl:message name="IGameService_GetPlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetPlayers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetBalanse_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetBalanse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_ChangeBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBalance" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_ChangeBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetCredit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCredit" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetCredit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditResponse" />
+  </wsdl:message>
+>>>>>>> develop
   <wsdl:message name="IGameService_UpdatePlayerList_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdatePlayerList" />
   </wsdl:message>
@@ -81,6 +108,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/Logout" message="tns:IGameService_Logout_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LogoutResponse" message="tns:IGameService_Logout_OutputMessage" />
     </wsdl:operation>
+<<<<<<< HEAD
+=======
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPlayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetPlayers" message="tns:IGameService_GetPlayers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetPlayersResponse" message="tns:IGameService_GetPlayers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetBalanse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetBalanse" message="tns:IGameService_GetBalanse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetBalanseResponse" message="tns:IGameService_GetBalanse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ChangeBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/ChangeBalance" message="tns:IGameService_ChangeBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/ChangeBalanceResponse" message="tns:IGameService_ChangeBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetCredit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetCredit" message="tns:IGameService_GetCredit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetCreditResponse" message="tns:IGameService_GetCredit_OutputMessage" />
+    </wsdl:operation>
+>>>>>>> develop
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdatePlayerList">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdatePlayerList" message="tns:IGameService_UpdatePlayerList_OutputCallbackMessage" />
     </wsdl:operation>
@@ -122,6 +168,45 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+<<<<<<< HEAD
+=======
+    <wsdl:operation name="GetPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/GetPlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanse">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/GetBalanse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBalance">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/ChangeBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCredit">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/GetCredit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+>>>>>>> develop
     <wsdl:operation name="UpdatePlayerList">
       <soap12:operation soapAction="http://tempuri.org/IGameService/UpdatePlayerList" style="document" />
       <wsdl:output>
@@ -143,9 +228,15 @@
   </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
+<<<<<<< HEAD
       <soap12:address location="net.tcp://localhost:2017/BlackJackWcfService/Service1/" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:2017/BlackJackWcfService/Service1/</wsa10:Address>
+=======
+      <soap12:address location="net.tcp://10.6.6.60:4042/BlackJackWcfService/Service1/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://10.6.6.60:4042/BlackJackWcfService/Service1/</wsa10:Address>
+>>>>>>> develop
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>xvII@step.edu</Upn>
         </Identity>

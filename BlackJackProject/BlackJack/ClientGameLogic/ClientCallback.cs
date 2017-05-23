@@ -1,4 +1,4 @@
-﻿using BlackJack.GameService;
+﻿using BlackJack.ServiceReference;
 using System;
 using System.Collections.Generic;
 

@@ -1,4 +1,5 @@
 ﻿using BJDataLevel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,6 +43,47 @@ namespace BJDataLevel.Providers.LocalDBProvider
                     db.SaveChanges();
                     return temp.Id;
                 }
+            }
+        }
+
+        public int GetBalanse(int id)
+        {
+            using (BJContext db = new BJContext())
+            {
+                if (db.BalansPlayers.Where(p => p.IdPlayer == id).Count() == 0)
+                {
+                    BalansPlayers bl =new  BalansPlayers(){ IdPlayer = id, Balance = 1000, CreditBalance = 0 };
+                    db.BalansPlayers.Add(bl);
+                    db.SaveChanges();
+                    return bl.Balance;
+                }
+                else
+                {
+                    return db.BalansPlayers.Where(p => p.IdPlayer == id).Select(p => p.Balance).FirstOrDefault();
+                }
+            }
+       }
+
+        public int ChangeBalance(int id, int coins)
+        {
+            using (BJContext db = new BJContext())
+            {
+                    BalansPlayers bl = db.BalansPlayers.Find(id);
+                    bl.Balance += coins;
+                    db.SaveChanges();
+                    return bl.Balance;
+           }
+       }
+
+        public int GetCredit(int id)
+        {
+            using (BJContext db = new BJContext())
+            {
+                BalansPlayers bl = db.BalansPlayers.Find(id);
+                bl.Balance += 1000;
+                bl.CreditBalance -= 1000;
+                db.SaveChanges();
+                return bl.Balance;
             }
         }
     }

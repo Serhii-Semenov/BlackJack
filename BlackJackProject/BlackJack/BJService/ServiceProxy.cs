@@ -6,7 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using BlackJack.GameService;
+using BlackJack.ServiceReference;
 
 namespace BlackJack.BJService
 {
@@ -76,9 +76,21 @@ namespace BlackJack.BJService
 
         }
 
+<<<<<<< HEAD
         //internal PlayerList GetPlayers()
         //{
         //    return service.GetPlayers();
         //}
+=======
+        internal PlayerList GetPlayers()
+        {
+            return service.GetPlayers();
+        }
+
+        internal int GetBalanse(int p)
+        {
+            return service.GetBalanse(p);
+        }
+>>>>>>> develop
     }
 }

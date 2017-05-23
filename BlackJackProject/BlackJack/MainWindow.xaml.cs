@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using BlackJack.BJWindows;
 using BlackJack.ClientGameLogic;
-using BlackJack.GameService;
+using BlackJack.ServiceReference;
 using System.Collections.Generic;
 using System;
 using BlackJack.BJService;
@@ -25,7 +25,6 @@ namespace BlackJack
         public MainWindow()
         {
             InitializeComponent();
-
             lbxPlayers = new ListBox();
             WrapPanelForList.Children.Add(lbxPlayers);
             lbxPlayers.Items.Add("Name ");
@@ -68,9 +67,34 @@ namespace BlackJack
 
         private void InitMenu()
         {
-            var w = new MenuWindow(Plr.Login, 1000); // костыль
+            var w = new MenuWindow(Plr.Login, ServiceProxy.Instance.GetBalanse(Plr.Id)); // костыль
             w.ShowDialog();
             if (w.DialogResult == false) this.Close();
+
+            switch (w.Game)
+            {
+                case -1:
+                    {
+                        try
+                        {
+                            Disconnect();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            throw;
+                        }
+                        InitAuth();
+                    }
+                    break;
+                case 1:
+                    this.Title = "Игра с компьютером";
+                    break;
+                default:
+                    this.Title = "Ничего!";
+                    break;
+            }
+
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -91,11 +115,6 @@ namespace BlackJack
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-        
-        private void btnMenuWindow_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
@@ -129,7 +148,7 @@ namespace BlackJack
 
         public void callback_GamePlayerMoved(GamePlayer player)
         {
-           
+            
         }
 
         private void GetPlayers()
@@ -167,5 +186,6 @@ namespace BlackJack
                  MessageBox.Show(err.Message);
             }
         }
+
     }
 }

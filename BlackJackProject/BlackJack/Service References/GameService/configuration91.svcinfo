@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="qZkinNAyEucXNFQua68B9qbI5OY=">
+=======
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2ds8mOMaVmc7gtriRsZ6HtHnwFg=">
+>>>>>>> develop
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IGameService3">
       <properties>
@@ -121,10 +125,17 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
+<<<<<<< HEAD
     <endpoint name="NetTcpBinding_IGameService3" contract="GameService.IGameService" bindingType="netTcpBinding" address="net.tcp://localhost:2017/BlackJackWcfService/Service1/" bindingConfiguration="NetTcpBinding_IGameService3">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>net.tcp://localhost:2017/BlackJackWcfService/Service1/</serializedValue>
+=======
+    <endpoint name="NetTcpBinding_IGameService3" contract="GameService.IGameService" bindingType="netTcpBinding" address="net.tcp://10.6.6.60:4042/BlackJackWcfService/Service1/" bindingConfiguration="NetTcpBinding_IGameService3">
+      <properties>
+        <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>net.tcp://10.6.6.60:4042/BlackJackWcfService/Service1/</serializedValue>
+>>>>>>> develop
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
