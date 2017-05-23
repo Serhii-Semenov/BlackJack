@@ -18,24 +18,16 @@ namespace BlackJackWcfService
         void Logout(int id);
 
         [OperationContract]
-<<<<<<< HEAD
         int PlayerWisComp(int idPlayer);
 
         //[OperationContract]
-        //int PlayerWisComp();
-
-
-        //[OperationContract]
         //PlayerList GetPlayers();
-=======
-        PlayerList GetPlayers();
-
+               
         [OperationContract]
         int GetBalanse(int id);
         [OperationContract]
         int ChangeBalance(int id, int coins);
         [OperationContract]
         int GetCredit(int id);
->>>>>>> develop
     }
 }

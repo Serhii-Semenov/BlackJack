@@ -59,11 +59,11 @@
   <wsdl:message name="IGameService_Logout_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogoutResponse" />
   </wsdl:message>
-  <wsdl:message name="IGameService_GetPlayers_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlayers" />
+  <wsdl:message name="IGameService_PlayerWisComp_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlayerWisComp" />
   </wsdl:message>
-  <wsdl:message name="IGameService_GetPlayers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlayersResponse" />
+  <wsdl:message name="IGameService_PlayerWisComp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlayerWisCompResponse" />
   </wsdl:message>
   <wsdl:message name="IGameService_GetBalanse_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBalanse" />
@@ -105,9 +105,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/Logout" message="tns:IGameService_Logout_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LogoutResponse" message="tns:IGameService_Logout_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPlayers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetPlayers" message="tns:IGameService_GetPlayers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetPlayersResponse" message="tns:IGameService_GetPlayers_OutputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="PlayerWisComp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/PlayerWisComp" message="tns:IGameService_PlayerWisComp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/PlayerWisCompResponse" message="tns:IGameService_PlayerWisComp_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetBalanse">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetBalanse" message="tns:IGameService_GetBalanse_InputMessage" />
@@ -162,8 +162,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPlayers">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/GetPlayers" style="document" />
+    <wsdl:operation name="PlayerWisComp">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/PlayerWisComp" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -219,9 +219,9 @@
   </wsdl:binding>
   <wsdl:service name="GameService">
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
-      <soap12:address location="net.tcp://10.6.6.95:4042/BlackJackWcfService/Service1/" />
+      <soap12:address location="net.tcp://localhost:2017/BlackJackWcfService/Service1/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://10.6.6.95:4042/BlackJackWcfService/Service1/</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:2017/BlackJackWcfService/Service1/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>xvII@step.edu</Upn>
         </Identity>

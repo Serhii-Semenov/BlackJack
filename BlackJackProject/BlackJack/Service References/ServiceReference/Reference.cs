@@ -15,112 +15,6 @@ namespace BlackJack.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlayerList", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
-    [System.SerializableAttribute()]
-    public partial class PlayerList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.Dictionary<int, BlackJack.ServiceReference.Player> PlayersField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<int, BlackJack.ServiceReference.Player> Players {
-            get {
-                return this.PlayersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
-                    this.PlayersField = value;
-                    this.RaisePropertyChanged("Players");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
-    [System.SerializableAttribute()]
-    public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NicknameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nickname {
-            get {
-                return this.NicknameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NicknameField, value) != true)) {
-                    this.NicknameField = value;
-                    this.RaisePropertyChanged("Nickname");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GamePlayer", Namespace="http://schemas.datacontract.org/2004/07/BlackJackWcfService.Model")]
     [System.SerializableAttribute()]
     public partial class GamePlayer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -218,11 +112,11 @@ namespace BlackJack.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Logout", ReplyAction="http://tempuri.org/IGameService/LogoutResponse")]
         System.Threading.Tasks.Task LogoutAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
-        BlackJack.ServiceReference.PlayerList GetPlayers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/PlayerWisComp", ReplyAction="http://tempuri.org/IGameService/PlayerWisCompResponse")]
+        int PlayerWisComp(int idPlayer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetPlayers", ReplyAction="http://tempuri.org/IGameService/GetPlayersResponse")]
-        System.Threading.Tasks.Task<BlackJack.ServiceReference.PlayerList> GetPlayersAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/PlayerWisComp", ReplyAction="http://tempuri.org/IGameService/PlayerWisCompResponse")]
+        System.Threading.Tasks.Task<int> PlayerWisCompAsync(int idPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetBalanse", ReplyAction="http://tempuri.org/IGameService/GetBalanseResponse")]
         int GetBalanse(int id);
@@ -247,7 +141,7 @@ namespace BlackJack.ServiceReference {
     public interface IGameServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/UpdatePlayerList")]
-        void UpdatePlayerList(BlackJack.ServiceReference.PlayerList players);
+        void UpdatePlayerList(BlackJackWcfService.Model.PlayerList players);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/BattleStarted")]
         void BattleStarted(BlackJack.ServiceReference.GamePlayer[] players);
@@ -308,12 +202,12 @@ namespace BlackJack.ServiceReference {
             return base.Channel.LogoutAsync(id);
         }
         
-        public BlackJack.ServiceReference.PlayerList GetPlayers() {
-            return base.Channel.GetPlayers();
+        public int PlayerWisComp(int idPlayer) {
+            return base.Channel.PlayerWisComp(idPlayer);
         }
         
-        public System.Threading.Tasks.Task<BlackJack.ServiceReference.PlayerList> GetPlayersAsync() {
-            return base.Channel.GetPlayersAsync();
+        public System.Threading.Tasks.Task<int> PlayerWisCompAsync(int idPlayer) {
+            return base.Channel.PlayerWisCompAsync(idPlayer);
         }
         
         public int GetBalanse(int id) {

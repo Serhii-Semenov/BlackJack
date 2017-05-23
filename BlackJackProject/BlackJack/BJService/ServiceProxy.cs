@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJack.ServiceReference;
+using BlackJackWcfService.Model;
 
 namespace BlackJack.BJService
 {
@@ -68,29 +69,21 @@ namespace BlackJack.BJService
         internal void Connect(string nickname, int id)
         {            
             Initialized();
-
             //service = new GameServiceClient(new InstanceContext(callback));
-
             ClientGameCore.Player = new Player() { Id = id, Nickname = nickname };
             ClientGameCore.Status = ClientStatus.Online;
-
         }
 
-<<<<<<< HEAD
+
         //internal PlayerList GetPlayers()
         //{
         //    return service.GetPlayers();
         //}
-=======
-        internal PlayerList GetPlayers()
-        {
-            return service.GetPlayers();
-        }
 
         internal int GetBalanse(int p)
         {
             return service.GetBalanse(p);
         }
->>>>>>> develop
+
     }
 }

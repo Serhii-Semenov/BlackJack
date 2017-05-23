@@ -71,14 +71,15 @@ namespace BlackJackWcfService
             SendPlayers(user);
         }
 
-<<<<<<< HEAD
-      
         int IGameService.PlayerWisComp(int idPlayer)
         {
             BlackJackWcfService.Model.Player pl = new Player();
             pl.Id = idPlayer;
-           // pl.
-=======
+            // pl.
+            return 0;
+            //BJLogicLevel.GameLogic.GameCore.PlayerWisComp
+        }
+
         public int GetBalanse(int id)
         {
             IProvider provider = new ProviderLocalDB();
@@ -98,11 +99,6 @@ namespace BlackJackWcfService
             IProvider provider = new ProviderLocalDB();
             return provider.GetCredit(id);
         }
->>>>>>> develop
-
-
-            return 0;
-            //BJLogicLevel.GameLogic.GameCore.PlayerWisComp
-        }
+         
     }
 }

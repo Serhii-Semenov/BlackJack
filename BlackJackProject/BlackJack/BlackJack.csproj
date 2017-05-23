@@ -190,14 +190,7 @@
     <None Include="Service References\ServiceReference\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-<<<<<<< HEAD
-    <None Include="Service References\GameService\BlackJackWcfService.Model.xsd">
-=======
-    <None Include="Service References\ServiceReference\BlackJack.ServiceReference.PlayerList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference\BlackJackWcfService.Model.xsd">
->>>>>>> develop
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\service.wsdl" />

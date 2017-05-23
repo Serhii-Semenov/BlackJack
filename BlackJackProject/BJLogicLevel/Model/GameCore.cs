@@ -94,21 +94,21 @@ namespace BJLogicLevel.Model
 
         //private static int nextPlayerId;
 		
-        private static GamesRoom currentRoom = new GamesRoom();
-        private static List<GamesRoom> rooms = new List<GamesRoom>();
+        //private static GamesRoom currentRoom = new GamesRoom();
+        //private static List<GamesRoom> rooms = new List<GamesRoom>();
 		
 
-        public static int CreateNewGameRoom()
-        {
-            GamesRoom temp = new GamesRoom();
-            rooms.Add(temp);
-            return temp.id;
-        }
+        //public static int CreateNewGameRoom()
+        //{
+        //    GamesRoom temp = new GamesRoom();
+        //    rooms.Add(temp);
+        //    return temp.id;
+        //}
 
-        public static GamesRoom GiveGameRoom(int id)
-        {
-            return rooms.Where(p => p.id == id).FirstOrDefault();
-        }
+        //public static GamesRoom GiveGameRoom(int id)
+        //{
+        //    return rooms.Where(p => p.id == id).FirstOrDefault();
+        //}
 
   
 

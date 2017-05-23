@@ -1,4 +1,5 @@
 ﻿using BlackJack.ServiceReference;
+using BlackJackWcfService.Model;
 using System;
 using System.Collections.Generic;
 

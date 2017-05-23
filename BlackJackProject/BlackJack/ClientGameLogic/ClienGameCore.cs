@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJack.ClientGameLogic;
+using BlackJackWcfService.Model;
 
 namespace BlackJack.ClientGameLogic
 {
